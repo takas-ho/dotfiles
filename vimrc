@@ -1,10 +1,20 @@
 call plug#begin('~/.vim/plugged') 
 Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
 Plug 'Shougo/neocomplete.vim'
+Plug 'pocke/dicts'
 call plug#end()
 
 set cursorline
 set scrolloff=5
+
+let g:neocomplete#enable_at_startup = 1
+let s:neco_dicts_dir = $HOME . '/.vim/plugged/dicts'
+if isdirectory(s:neco_dicts_dir)
+	let g:neocomplete#sources#dictionary#dictionaries = {
+		\   'ruby': s:neco_dicts_dir . '/ruby.dict',
+		\   'javascript': s:neco_dicts_dir . '/jquery.dict',
+		\ }
+endif
 
 " タブ幅
 set tabstop=4
