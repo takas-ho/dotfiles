@@ -1,0 +1,30 @@
+[user]
+	name = HOMMA Takashi
+	email = hommatks@gmail.com
+[alias]
+	co = "!f(){ git checkout $*;git submodule update --init;};f"
+	br = branch
+	ci = commit
+	st = status
+	sm = submodule
+	l = log --graph -n 25 --date=iso --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(green)- %an, %ad%x08%x08%x08%x08%x08%x08%x08%x08%x08%Creset'
+	ll = log --graph -n 200 --date=iso --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(green)- %an, %ad%x08%x08%x08%x08%x08%x08%x08%x08%x08%Creset'
+	s = status --short --branch
+	sl = !sh -c '/usr/local/src/smartgit/bin/smartgit.sh --log \"$(git rev-parse --show-toplevel)\"' &
+[push]
+	default = upstream
+
+[difftool "kdiff3"]
+    path = /usr/bin/kdiff3
+    trustExitCode = false
+[difftool]
+    prompt = false
+[diff]
+    tool = kdiff3
+[mergetool "kdiff3"]
+    path = /usr/bin/kdiff3
+    trustExitCode = false
+[mergetool]
+    keepBackup = false
+[merge]
+    tool = kdiff3
