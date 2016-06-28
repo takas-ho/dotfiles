@@ -4,9 +4,18 @@ Plug 'Shougo/neocomplete.vim'
 Plug 'pocke/dicts'
 call plug#end()
 
+" 構文ハイライト表示
+syntax on
+" 行番号表示
+set number
+
 set cursorline
 set scrolloff=5
 
+" Shift-jis対応
+set fileencodings=sjis,utf-8
+
+" コード補完
 let g:neocomplete#enable_at_startup = 1
 let s:neco_dicts_dir = $HOME . '/.vim/plugged/dicts'
 if isdirectory(s:neco_dicts_dir)
@@ -68,6 +77,7 @@ augroup swapchoice-readonly
 	autocmd SwapExists * let v:swapchoice = 'o'
 augroup END
 
-" バックアップを取らない
-set nobackup
-
+"File
+set hidden      "ファイル変更中でも他のファイルを開けるようにする
+set autoread    "ファイル内容が変更されると自動読み込みする
+set nobackup    " バックアップを取らない
