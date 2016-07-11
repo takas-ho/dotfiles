@@ -13,6 +13,6 @@ export PATH="${SWIFT_BIN}":"${PATH}"
 export LD_LIBRARY_PATH="${SWIFT_LIB}":"${LD_LIBRARY_PATH}"
 export LD_RUN_PATH="${SWIFT_LIB}":"${LD_RUN_PATH}"
 
-export NVM_DIR="/home/takas-ho/.nvm"
+export NVM_DIR="$HOME/.nvm"
 
 export PATH="$HOME/.rbenv/bin:$PATH"
