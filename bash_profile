@@ -15,4 +15,5 @@ export LD_RUN_PATH="${SWIFT_LIB}":"${LD_RUN_PATH}"
 
 export NVM_DIR="$HOME/.nvm"
 
-export PATH="$HOME/.rbenv/bin:$PATH"
+export RBENV_BIN="$HOME/.rbenv/bin"
+export PATH="$RBENV_BIN:$PATH"

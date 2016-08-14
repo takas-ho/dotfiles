@@ -118,7 +118,7 @@ fi
 
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
-#eval "$(rbenv init -)"
+[ -s "$RBENV_BIN/rbenv" ] && eval "$(rbenv init -)"
 
 # Gitブランチ名をプロンプト表示
 export GIT_PS1_SHOWDIRTYSTATE=true
