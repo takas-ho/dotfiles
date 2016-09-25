@@ -1,11 +1,6 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
-FILES=(\
-    bash_profile \
-    bashrc \
-    gitconfig \
-    vimrc \
-)
+FILES=(`ls | grep -v --file=./.manageignore`)
 
 function custom_path () {
     for i in "${!PATHS[@]}"
