@@ -33,3 +33,5 @@
 	editor = vim -c \"set fenc=utf-8\"
 [fetch]
 	prune = true
+[rebase]
+	autosquash = true
