@@ -123,5 +123,9 @@ fi
 [ -s "$RBENV_BIN/rbenv" ] && eval "$(rbenv init -)"
 
 # Gitブランチ名をプロンプト表示
+if [ -f /usr/local/etc/bash_completion.d/git-prompt.sh ]; then
+	source /usr/local/etc/bash_completion.d/git-prompt.sh
+	source /usr/local/etc/bash_completion.d/git-completion.bash
+fi
 export GIT_PS1_SHOWDIRTYSTATE=true
 export PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;33m\]\w$(__git_ps1) \[\033[01;34m\]\$\[\033[00m\] '
