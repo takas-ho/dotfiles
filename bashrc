@@ -120,8 +120,6 @@ fi
 
 [ -s "$RBENV_BIN/rbenv" ] && eval "$(rbenv init -)"
 
-# [ -d ~/Homestead ] && function homestead() { ( cd ~/Homestead && vagrant $* ) }
-
 # Gitブランチ名をプロンプト表示
 export GIT_PS1_SHOWDIRTYSTATE=true
 export PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;33m\]\w$(__git_ps1) \[\033[01;34m\]\$\[\033[00m\] '
