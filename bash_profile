@@ -1,3 +1,5 @@
+echo This is .bash_profile
+
 # .bash_profileはログイン時にのみ実行
 # .bashrcはbash起動の度に動く
 
@@ -17,3 +19,6 @@ export NVM_DIR="$HOME/.nvm"
 
 export RBENV_BIN="$HOME/.rbenv/bin"
 export PATH="$RBENV_BIN:$PATH"
+
+[ -r "~/.bashrc" ] && source "~/.bashrc"
+
