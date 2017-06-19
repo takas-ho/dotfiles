@@ -5,13 +5,15 @@
 #export PATH="$SWIFTENV_ROOT/bin:$PATH"
 #eval "$(swiftenv init -)"
 
+if [ "$(uname)" != 'Darwin' ]; then
+	# linuxならswift追記
+	export SWIFT_BIN="/usr/local/toolchains/swift-current/usr/bin"
+	export SWIFT_LIB="/usr/local/toolchains/swift-current/usr/lib"
 
-export SWIFT_BIN="/usr/local/toolchains/swift-current/usr/bin"
-export SWIFT_LIB="/usr/local/toolchains/swift-current/usr/lib"
-
-export PATH="${SWIFT_BIN}":"${PATH}"
-export LD_LIBRARY_PATH="${SWIFT_LIB}":"${LD_LIBRARY_PATH}"
-export LD_RUN_PATH="${SWIFT_LIB}":"${LD_RUN_PATH}"
+	export PATH="${SWIFT_BIN}":"${PATH}"
+	export LD_LIBRARY_PATH="${SWIFT_LIB}":"${LD_LIBRARY_PATH}"
+	export LD_RUN_PATH="${SWIFT_LIB}":"${LD_RUN_PATH}"
+fi
 
 export NVM_DIR="$HOME/.nvm"
 
