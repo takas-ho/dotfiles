@@ -5,7 +5,7 @@
 #export PATH="$SWIFTENV_ROOT/bin:$PATH"
 #eval "$(swiftenv init -)"
 
-if [ "$(uname)" != 'Darwin' ]; then
+if [ "$(uname)" == 'Linux' ]; then
 	# linuxならswift追記
 	export SWIFT_BIN="/usr/local/toolchains/swift-current/usr/bin"
 	export SWIFT_LIB="/usr/local/toolchains/swift-current/usr/lib"
