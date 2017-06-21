@@ -20,6 +20,8 @@ export NVM_DIR="$HOME/.nvm"
 export RBENV_BIN="$HOME/.rbenv/bin"
 export PATH="$RBENV_BIN:$PATH"
 
+export PATH="$HOME/bin:$PATH"
+
 if [ "$(uname)" == 'Darwin' ]; then
 	# Mac
 	source "$HOME/.bashrc"
