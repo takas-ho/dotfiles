@@ -1,0 +1,8 @@
+*.xls diff=tika
+*.xlsx diff=tika
+*.xlsm diff=tika
+*.ppt diff=tika
+*.pptx diff=tika
+*.pptm diff=tika
+*.pdf diff=tika
+

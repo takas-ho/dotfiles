@@ -31,7 +31,10 @@
     tool = kdiff3
 [core]
 	editor = vim -c \"set fenc=utf-8\"
+	attributesfile = ~/.gitattributes
 [fetch]
 	prune = true
 [rebase]
 	autosquash = true
+[diff "tika"]
+	textconv = tika -t
