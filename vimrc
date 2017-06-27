@@ -38,7 +38,7 @@ augroup END
 " 不可視文字を表示
 set list
 " 不可視文字を表示の詳細設定
-set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
+set listchars=tab:\▸\-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
 " 全角スペースの可視化
 if has("syntax")
 	syntax on
