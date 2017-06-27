@@ -81,3 +81,13 @@ augroup END
 set hidden      "ファイル変更中でも他のファイルを開けるようにする
 set autoread    "ファイル内容が変更されると自動読み込みする
 set nobackup    " バックアップを取らない
+
+if has('gui_macvim')
+    set showtabline=2	" タブを常に表示
+    set imdisable	" IMを無効化
+    set transparency=10	" 透明度を指定
+    set antialias
+    set guifont=Monaco:h10
+    colorscheme macvim
+endif
+
