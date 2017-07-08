@@ -1,3 +1,28 @@
+let s:dein_dir = expand('~/.vim/dein')
+let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
+
+if &compatible
+	set nocompatible
+endif
+execute 'set runtimepath^=' . fnamemodify(s:dein_repo_dir, ':p')
+
+if dein#load_state(s:dein_dir)
+	call dein#begin(s:dein_dir)
+
+	call dein#add('Shougo/dein.vim')
+	call dein#add('Shougo/neocomplete.vim')
+
+	call dein#end()
+	call dein#save_state()
+endif
+
+filetype plugin indent on
+
+" 未installがあれば自動install
+if dein#check_install()
+	call dein#install()
+endif
+
 " 構文ハイライト表示
 syntax on
 " 行番号表示
