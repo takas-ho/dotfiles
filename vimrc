@@ -8,6 +8,8 @@ call neobundle#begin(expand('~/.vim/bundle'))
 " neobundle.vim 自身をneobundle.vimで管理する
 NeoBundleFetch 'Shougo/neobundle.vim'
 
+NeoBundle 'vim-jp/vimdoc-ja'
+
 call neobundle#end()
 
 filetype plugin indent on
@@ -108,6 +110,8 @@ augroup END
 set hidden      "ファイル変更中でも他のファイルを開けるようにする
 set autoread    "ファイル内容が変更されると自動読み込みする
 set nobackup    " バックアップを取らない
+
+set helplang=ja,en
 
 if has('gui_macvim')
     set showtabline=2	" タブを常に表示
