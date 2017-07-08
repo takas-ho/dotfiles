@@ -1,8 +1,27 @@
-call plug#begin('~/.vim/plugged') 
-Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
-Plug 'Shougo/neocomplete.vim'
-Plug 'pocke/dicts'
-call plug#end()
+if has('vim_starting')
+	set nocompatible
+	set runtimepath+=~/.vim/bundle/neobundle.vim
+endif
+
+call neobundle#begin(expand('~/.vim/bundle'))
+
+" neobundle.vim 自身をneobundle.vimで管理する
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+NeoBundle 'vim-jp/vimdoc-ja'
+NeoBundle 'thinca/vim-quickrun'
+NeoBundle 'Shougo/unite.vim'
+
+call neobundle#end()
+
+filetype plugin indent on
+" プラグインがインストールされているかチェック
+NeoBundleCheck
+
+if !has('vim_starting')
+	" .vimrcを読み込み直したときのための設定
+	call neobundle#call_hook('on_source')
+endif
 
 " 構文ハイライト表示
 syntax on
@@ -93,6 +112,8 @@ augroup END
 set hidden      "ファイル変更中でも他のファイルを開けるようにする
 set autoread    "ファイル内容が変更されると自動読み込みする
 set nobackup    " バックアップを取らない
+
+set helplang=ja,en
 
 if has('gui_macvim')
     set showtabline=2	" タブを常に表示
