@@ -1,3 +1,23 @@
+if has('vim_starting')
+	set nocompatible
+	set runtimepath+=~/.vim/bundle/neobundle.vim
+endif
+
+call neobundle#begin(expand('~/.vim/bundle'))
+
+" neobundle.vim 自身をneobundle.vimで管理する
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+call neobundle#end()
+
+filetype plugin indent on
+" プラグインがインストールされているかチェック
+NeoBundleCheck
+
+if !has('vim_starting')
+	" .vimrcを読み込み直したときのための設定
+	call neobundle#call_hook('on_source')
+endif
 
 " 構文ハイライト表示
 syntax on
