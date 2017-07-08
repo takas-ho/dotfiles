@@ -38,7 +38,7 @@ augroup END
 " 不可視文字を表示
 set list
 " 不可視文字を表示の詳細設定
-set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
+set listchars=tab:\▸\-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
 " 全角スペースの可視化
 if has("syntax")
 	syntax on
@@ -56,6 +56,18 @@ if has("syntax")
 		autocmd BufNew,BufRead * call ActivateInvisibleIndicator()
 	augroup END
 endif
+
+" 検索系
+" 検索文字列が小文字の場合は大文字小文字を区別なく検索する
+set ignorecase
+" 検索文字列に大文字が含まれている場合は区別して検索する
+set smartcase
+" 検索文字列入力時に順次対象文字列にヒットさせる
+set incsearch
+" 検索時に最後まで行ったら最初に戻る
+set wrapscan
+" 検索語をハイライト表示
+set hlsearch
 
 " 行末までヤンク
 nnoremap Y y$
@@ -81,3 +93,13 @@ augroup END
 set hidden      "ファイル変更中でも他のファイルを開けるようにする
 set autoread    "ファイル内容が変更されると自動読み込みする
 set nobackup    " バックアップを取らない
+
+if has('gui_macvim')
+    set showtabline=2	" タブを常に表示
+    set imdisable	" IMを無効化
+    set transparency=10	" 透明度を指定
+    set antialias
+    set guifont=Monaco:h10
+    colorscheme macvim
+endif
+
