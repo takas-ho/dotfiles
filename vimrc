@@ -1,8 +1,3 @@
-call plug#begin('~/.vim/plugged') 
-Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
-Plug 'Shougo/neocomplete.vim'
-Plug 'pocke/dicts'
-call plug#end()
 
 " 構文ハイライト表示
 syntax on
