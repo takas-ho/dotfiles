@@ -9,6 +9,8 @@ call neobundle#begin(expand('~/.vim/bundle'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 NeoBundle 'vim-jp/vimdoc-ja'
+NeoBundle 'thinca/vim-quickrun'
+NeoBundle 'Shougo/unite.vim'
 
 call neobundle#end()
 
