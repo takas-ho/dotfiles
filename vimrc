@@ -9,8 +9,15 @@ execute 'set runtimepath^=' . fnamemodify(s:dein_repo_dir, ':p')
 if dein#load_state(s:dein_dir)
 	call dein#begin(s:dein_dir)
 
-	call dein#add('Shougo/dein.vim')
-	call dein#add('Shougo/neocomplete.vim')
+	let g:toml_dir = s:dein_dir . '/toml'
+	let s:toml = g:toml_dir . '/dein.toml'
+	let s:lazy_toml = g:toml_dir . '/dein_lazy.toml'
+
+	call dein#load_toml(s:toml, {'lazy': 0})
+	call dein#load_toml(s:lazy_toml, {'lazy': 1})
+
+	" TOMLを使わない場合
+	"call dein#add('Shougo/unite.vim')
 
 	call dein#end()
 	call dein#save_state()
