@@ -18,10 +18,12 @@ endif
 
 filetype plugin indent on
 
-" 未installがあれば自動install
-if dein#check_install()
-	call dein#install()
-endif
+"" 未installがあれば自動install
+"if dein#check_install()
+"	call dein#install()
+"endif
+" 手動installは :call dein#install()
+" 手動updateは  :call dein#update()
 
 " 構文ハイライト表示
 syntax on
