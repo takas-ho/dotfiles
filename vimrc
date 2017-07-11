@@ -1,27 +1,36 @@
-if has('vim_starting')
+let s:dein_dir = expand('~/.vim/dein')
+let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
+
+if &compatible
 	set nocompatible
-	set runtimepath+=~/.vim/bundle/neobundle.vim
 endif
+execute 'set runtimepath^=' . fnamemodify(s:dein_repo_dir, ':p')
 
-call neobundle#begin(expand('~/.vim/bundle'))
+if dein#load_state(s:dein_dir)
+	call dein#begin(s:dein_dir)
 
-" neobundle.vim 自身をneobundle.vimで管理する
-NeoBundleFetch 'Shougo/neobundle.vim'
+	let g:toml_dir = s:dein_dir . '/toml'
+	let s:toml = g:toml_dir . '/dein.toml'
+	let s:lazy_toml = g:toml_dir . '/dein_lazy.toml'
 
-NeoBundle 'vim-jp/vimdoc-ja'
-NeoBundle 'thinca/vim-quickrun'
-NeoBundle 'Shougo/unite.vim'
+	call dein#load_toml(s:toml, {'lazy': 0})
+	call dein#load_toml(s:lazy_toml, {'lazy': 1})
 
-call neobundle#end()
+	" TOMLを使わない場合
+	"call dein#add('Shougo/unite.vim')
+
+	call dein#end()
+	call dein#save_state()
+endif
 
 filetype plugin indent on
-" プラグインがインストールされているかチェック
-NeoBundleCheck
 
-if !has('vim_starting')
-	" .vimrcを読み込み直したときのための設定
-	call neobundle#call_hook('on_source')
-endif
+"" 未installがあれば自動install
+"if dein#check_install()
+"	call dein#install()
+"endif
+" 手動installは :call dein#install()
+" 手動updateは  :call dein#update()
 
 " 構文ハイライト表示
 syntax on
