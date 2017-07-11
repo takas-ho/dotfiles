@@ -1,6 +1,7 @@
 " display & information
 set lines=55
 set columns=128
+set guioptions=c	" show no GUI components
 
 if has('gui_macvim')
     set showtabline=2	" タブを常に表示
