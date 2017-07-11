@@ -124,4 +124,6 @@ set nobackup    " バックアップを取らない
 
 set helplang=ja,en
 
+" vimgrep結果をcopenせずに開く
+autocmd QuickfixCmdPost * copen
 
