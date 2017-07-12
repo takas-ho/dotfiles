@@ -66,7 +66,7 @@ augroup END
 " 不可視文字を表示
 set list
 " 不可視文字を表示の詳細設定
-set listchars=tab:\▸\-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
+set listchars=tab:\▸\ ,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
 " 全角スペースの可視化
 if has("syntax")
 	syntax on
@@ -124,12 +124,15 @@ set nobackup    " バックアップを取らない
 
 set helplang=ja,en
 
-if has('gui_macvim')
-    set showtabline=2	" タブを常に表示
-    set imdisable	" IMを無効化
-    set transparency=10	" 透明度を指定
-    set antialias
-    set guifont=Monaco:h10
-    colorscheme macvim
-endif
+" vimgrep結果をcopenせずに開く
+autocmd QuickfixCmdPost * copen
 
+" memolist
+nnoremap ,mn  :MemoNew<CR>
+nnoremap ,ml  :MemoList<CR>
+nnoremap ,mg  :MemoGrep<CR>
+let g:memolist_memo_suffix = "md"
+let g:memolist_qfixgrep = 1
+let g:memolist_unite = 1
+let g:memolist_unite_source = "file_rec"
+let g:memolist_unite_option = "-auto-preview -start-insert"
