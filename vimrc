@@ -129,6 +129,16 @@ let mapleader = "\<Space>"
 " vimgrep結果をcopenせずに開く
 autocmd QuickfixCmdPost * copen
 
+" Unite
+let g:unite_enable_start_insert=1
+let g:unite_source_history_yank_enable =1
+let g:unite_source_file_mru_limit = 100
+nnoremap <Leader>uy :<C-u>Unite history/yank<CR>
+nnoremap <Leader>ub :<C-u>Unite buffer<CR>
+nnoremap <Leader>uf :<C-u>UniteWithBufferDir -buffer-name=files file -default-action=tabopen<CR>
+nnoremap <Leader>ur :<C-u>Unite -buffer-name=register register<CR>
+nnoremap <Leader>uu :<C-u>Unite file_mru buffer -default-action=tabopen<CR>
+
 " memolist
 nnoremap <Leader>mn  :MemoNew<CR>
 nnoremap <Leader>ml  :MemoList<CR>
