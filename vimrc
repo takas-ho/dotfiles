@@ -124,13 +124,15 @@ set nobackup    " バックアップを取らない
 
 set helplang=ja,en
 
+let mapleader = "\<Space>"
+
 " vimgrep結果をcopenせずに開く
 autocmd QuickfixCmdPost * copen
 
 " memolist
-nnoremap ,mn  :MemoNew<CR>
-nnoremap ,ml  :MemoList<CR>
-nnoremap ,mg  :MemoGrep<CR>
+nnoremap <Leader>mn  :MemoNew<CR>
+nnoremap <Leader>ml  :MemoList<CR>
+nnoremap <Leader>mg  :MemoGrep<CR>
 let g:memolist_memo_suffix = "md"
 let g:memolist_qfixgrep = 1
 let g:memolist_unite = 1
