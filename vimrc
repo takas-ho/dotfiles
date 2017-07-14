@@ -97,6 +97,11 @@ set wrapscan
 " 検索語をハイライト表示
 set hlsearch
 
+" 上下移動「論理行」「表示行」を入れ替え
+noremap j gj
+noremap k gk
+noremap gj j
+noremap gk k
 " 行末までヤンク
 nnoremap Y y$
 
