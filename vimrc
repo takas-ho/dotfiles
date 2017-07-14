@@ -104,6 +104,10 @@ noremap gj j
 noremap gk k
 " 行末までヤンク
 nnoremap Y y$
+" 日時入力の補助
+inoremap <expr> ,df  strftime('%Y-%m-%dT%H:%M:%S')
+inoremap <expr> ,dd  strftime('%Y-%m-%d')
+inoremap <expr> ,dt  strftime('%H:%M:%S')
 
 " 長い行でも表示しきる
 set display=lastline
