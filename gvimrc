@@ -11,7 +11,7 @@ if has('gui_macvim')
     set transparency=5	" 透明度を指定
     set antialias
     set guifont=Monaco:h11
-    colorscheme macvim
+    colorscheme murphy
 endif
 set cursorline
 set imdisable	" IMを無効化

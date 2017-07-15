@@ -21,4 +21,7 @@ repo = 'thinca/vim-quickrun'
 repo = 'Shougo/unite.vim'
 
 [[plugins]]
+repo = 'Shougo/neomru.vim'
+
+[[plugins]]
 repo = 'glidenote/memolist.vim'
