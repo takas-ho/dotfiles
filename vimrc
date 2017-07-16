@@ -97,8 +97,23 @@ set wrapscan
 " 検索語をハイライト表示
 set hlsearch
 
+" 上下移動「論理行」「表示行」を入れ替え
+noremap j gj
+noremap k gk
+noremap gj j
+noremap gk k
 " 行末までヤンク
 nnoremap Y y$
+" 日時入力の補助
+inoremap <expr> ,df  strftime('%Y-%m-%dT%H:%M:%S')
+inoremap <expr> ,dd  strftime('%Y-%m-%d')
+inoremap <expr> ,dt  strftime('%H:%M:%S')
+" カーソル下のキーワードをヘルプ表示
+nnoremap <C-h><C-h> :<C-u>help<Space><C-r><C-w><Enter>
+" 最後に変更したテキストを選択
+nnoremap gc `[v`]
+vnoremap gc :<C-u>normal gc<Enter>
+onoremap gc :<C-u>normal gc<Enter>
 
 " 長い行でも表示しきる
 set display=lastline

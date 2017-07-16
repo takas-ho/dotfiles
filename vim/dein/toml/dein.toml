@@ -25,3 +25,7 @@ repo = 'Shougo/neomru.vim'
 
 [[plugins]]
 repo = 'glidenote/memolist.vim'
+
+[[plugins]]
+repo = 'keith/parsec.vim'
+if = '''has('gui_macvim')'''
