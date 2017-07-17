@@ -148,6 +148,14 @@ set backup
 set backupdir=$HOME/.tmp/vim/backup
 call s:MakeDirIfNotExist(&backupdir)
 
+"	undo
+if has('persistent_undo')
+	set undolevels=2000
+	set undofile
+	set undodir=$HOME/.tmp/vim/undo
+	call s:MakeDirIfNotExist(&undodir)
+endif
+
 set helplang=ja,en
 
 let mapleader = "\<Space>"
