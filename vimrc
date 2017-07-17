@@ -125,6 +125,13 @@ set matchtime=1
 " 補完メニュー行数
 "set pumheight=10
 
+" make dir
+function! s:MakeDirIfNotExist(directory)
+	if !isdirectory(expand(a:directory))
+		call mkdir(expand(a:directory),"p")
+	endif
+endfunction
+
 set swapfile
 " スワップ作成済みなら読み取り専用で開く
 augroup swapchoice-readonly
@@ -135,7 +142,11 @@ augroup END
 "File
 set hidden      "ファイル変更中でも他のファイルを開けるようにする
 set autoread    "ファイル内容が変更されると自動読み込みする
-set nobackup    " バックアップを取らない
+
+"	backup
+set backup
+set backupdir=$HOME/.tmp/vim/backup
+call s:MakeDirIfNotExist(&backupdir)
 
 set helplang=ja,en
 
