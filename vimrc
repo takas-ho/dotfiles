@@ -138,6 +138,8 @@ augroup swapchoice-readonly
 	autocmd!
 	autocmd SwapExists * let v:swapchoice = 'o'
 augroup END
+set directory=$HOME/.tmp/vim/swap
+call s:MakeDirIfNotExist(&directory)
 
 "File
 set hidden      "ファイル変更中でも他のファイルを開けるようにする
