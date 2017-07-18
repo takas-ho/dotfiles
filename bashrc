@@ -120,7 +120,11 @@ fi
 
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
-[ -s "$RBENV_BIN/rbenv" ] && eval "$(rbenv init -)"
+if [ "$(uname)" == "Darwin" ]; then
+	if which rbenv> /dev/null; then eval "$(rbenv init -)"; fi
+elif [ "$(uname)" == "Linux" ]; then
+	[ -s "$RBENV_BIN/rbenv" ] && eval "$(rbenv init -)"
+fi
 
 # Gitブランチ名をプロンプト表示
 if [ -f /usr/local/etc/bash_completion.d/git-prompt.sh ]; then

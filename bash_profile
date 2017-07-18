@@ -17,8 +17,10 @@ fi
 
 export NVM_DIR="$HOME/.nvm"
 
-export RBENV_BIN="$HOME/.rbenv/bin"
-export PATH="$RBENV_BIN:$PATH"
+if [ "$(uname)" == "Linux" ]; then
+	export RBENV_BIN="$HOME/.rbenv/bin"
+	export PATH="$RBENV_BIN:$PATH"
+fi
 
 export PATH="$HOME/bin:$PATH"
 
