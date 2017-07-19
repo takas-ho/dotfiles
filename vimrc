@@ -29,6 +29,13 @@ syntax enable
 set number
 
 set cursorline
+" カレントウィンドウにのみ罫線を引く
+augroup cursorline
+	autocmd!
+	autocmd WinEnter * setlocal cursorline
+	autocmd WinLeave * setlocal nocursorline
+augroup END
+
 set scrolloff=5
 
 " Shift-jis対応
