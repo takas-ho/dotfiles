@@ -24,11 +24,18 @@ call plug#end()
 filetype plugin indent on
 
 " 構文ハイライト表示
-syntax on
+syntax enable
 " 行番号表示
 set number
 
 set cursorline
+" カレントウィンドウにのみ罫線を引く
+augroup cursorline
+	autocmd!
+	autocmd WinEnter * setlocal cursorline
+	autocmd WinLeave * setlocal nocursorline
+augroup END
+
 set scrolloff=5
 
 " Shift-jis対応
@@ -60,8 +67,6 @@ set list
 set listchars=tab:\▸\ ,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
 " 全角スペースの可視化
 if has("syntax")
-	syntax on
-
 	" PODバグ対策
 	syn sync fromstart
 
@@ -167,9 +172,9 @@ nnoremap <Leader>ur :<C-u>Unite -buffer-name=register register<CR>
 nnoremap <Leader>uu :<C-u>Unite file_mru buffer -default-action=tabopen<CR>
 
 " memolist
-nnoremap <Leader>mn  :MemoNew<CR>
-nnoremap <Leader>ml  :MemoList<CR>
-nnoremap <Leader>mg  :MemoGrep<CR>
+nnoremap <Leader>mn  :<C-u>MemoNew<CR>
+nnoremap <Leader>ml  :<C-u>MemoList<CR>
+nnoremap <Leader>mg  :<C-u>MemoGrep<CR>
 let g:memolist_memo_suffix = "md"
 let g:memolist_qfixgrep = 1
 let g:memolist_unite = 1
