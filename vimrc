@@ -1,3 +1,26 @@
+if has('vim_starting')
+	set nocompatible
+	set runtimepath+=~/.vim/plugged/vim-plug
+endif
+
+call plug#begin('~/.vim/plugged')
+
+Plug 'vim-jp/vimdoc-ja'
+Plug 'Shougo/neocomplete.vim'
+Plug 'Shougo/neosnippet.vim'
+Plug 'Shougo/neosnippet-snippets'
+Plug 'rcmdnk/vim-markdown', { 'for': ['markdown']}
+Plug 'rhysd/vim-gfm-syntax', { 'for': ['markdown']}
+Plug 'Shougo/unite.vim'
+Plug 'glidenote/memolist.vim'
+Plug 'tpope/vim-fugitive'
+
+" colorscheme
+Plug 'tomasr/molokai'
+Plug 'keith/parsec.vim'
+
+call plug#end()
+
 filetype plugin indent on
 
 " 構文ハイライト表示
