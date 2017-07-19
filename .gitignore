@@ -1,5 +1,2 @@
-/vim/bundle/*
-!/vim/bundle/neobundle.vim
-/vim/dein/*
-!/vim/dein/repos/github.com/Shougo/dein.vim
-!/vim/dein/toml
+/vim/*
+!/vim/plugged/vim-plug

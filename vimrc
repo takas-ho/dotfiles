@@ -1,36 +1,27 @@
-let s:dein_dir = expand('~/.vim/dein')
-let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
-
-if &compatible
+if has('vim_starting')
 	set nocompatible
+	set runtimepath+=~/.vim/plugged/vim-plug
 endif
-execute 'set runtimepath^=' . fnamemodify(s:dein_repo_dir, ':p')
 
-if dein#load_state(s:dein_dir)
-	call dein#begin(s:dein_dir)
+call plug#begin('~/.vim/plugged')
 
-	let g:toml_dir = s:dein_dir . '/toml'
-	let s:toml = g:toml_dir . '/dein.toml'
-	let s:lazy_toml = g:toml_dir . '/dein_lazy.toml'
+Plug 'vim-jp/vimdoc-ja'
+Plug 'Shougo/neocomplete.vim'
+Plug 'Shougo/neosnippet.vim'
+Plug 'Shougo/neosnippet-snippets'
+Plug 'rcmdnk/vim-markdown', { 'for': ['markdown']}
+Plug 'rhysd/vim-gfm-syntax', { 'for': ['markdown']}
+Plug 'Shougo/unite.vim'
+Plug 'glidenote/memolist.vim'
+Plug 'tpope/vim-fugitive'
 
-	call dein#load_toml(s:toml, {'lazy': 0})
-	call dein#load_toml(s:lazy_toml, {'lazy': 1})
+" colorscheme
+Plug 'tomasr/molokai'
+Plug 'keith/parsec.vim'
 
-	" TOMLを使わない場合
-	"call dein#add('Shougo/unite.vim')
-
-	call dein#end()
-	call dein#save_state()
-endif
+call plug#end()
 
 filetype plugin indent on
-
-"" 未installがあれば自動install
-"if dein#check_install()
-"	call dein#install()
-"endif
-" 手動installは :call dein#install()
-" 手動updateは  :call dein#update()
 
 " 構文ハイライト表示
 syntax on
