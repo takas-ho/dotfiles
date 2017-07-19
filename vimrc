@@ -24,7 +24,7 @@ call plug#end()
 filetype plugin indent on
 
 " 構文ハイライト表示
-syntax on
+syntax enable
 " 行番号表示
 set number
 
@@ -60,8 +60,6 @@ set list
 set listchars=tab:\▸\ ,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
 " 全角スペースの可視化
 if has("syntax")
-	syntax on
-
 	" PODバグ対策
 	syn sync fromstart
 
