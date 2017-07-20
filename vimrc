@@ -44,7 +44,7 @@ augroup END
 set scrolloff=5
 
 " Shift-jis対応
-set fileencodings=sjis,utf-8
+set fileencodings=utf-8,sjis
 
 " コード補完
 let g:neocomplete#enable_at_startup = 1
