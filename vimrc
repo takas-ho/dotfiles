@@ -14,6 +14,7 @@ Plug 'rhysd/vim-gfm-syntax', { 'for': ['markdown']}
 Plug 'Shougo/unite.vim'
 Plug 'glidenote/memolist.vim'
 Plug 'tpope/vim-fugitive'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle'}
 
 if 16 <= &t_Co
 	Plug 'bling/vim-airline'
@@ -167,6 +168,8 @@ let mapleader = "\<Space>"
 
 " vimgrep結果をcopenせずに開く
 autocmd QuickfixCmdPost * copen
+
+nnoremap <Leader>ee :<C-u>NERDTreeToggle<CR>
 
 " Unite
 let g:unite_enable_start_insert=1
