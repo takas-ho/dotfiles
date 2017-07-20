@@ -11,7 +11,6 @@ Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'rcmdnk/vim-markdown', { 'for': ['markdown']}
 Plug 'rhysd/vim-gfm-syntax', { 'for': ['markdown']}
-Plug 'Shougo/unite.vim'
 Plug 'glidenote/memolist.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle'}
@@ -170,16 +169,6 @@ let mapleader = "\<Space>"
 autocmd QuickfixCmdPost * copen
 
 nnoremap <Leader>ee :<C-u>NERDTreeToggle<CR>
-
-" Unite
-let g:unite_enable_start_insert=1
-let g:unite_source_history_yank_enable =1
-let g:unite_source_file_mru_limit = 100
-nnoremap <Leader>uy :<C-u>Unite history/yank<CR>
-nnoremap <Leader>ub :<C-u>Unite buffer<CR>
-nnoremap <Leader>uf :<C-u>UniteWithBufferDir -buffer-name=files file -default-action=tabopen<CR>
-nnoremap <Leader>ur :<C-u>Unite -buffer-name=register register<CR>
-nnoremap <Leader>uu :<C-u>Unite file_mru buffer -default-action=tabopen<CR>
 
 " memolist
 nnoremap <Leader>mn  :<C-u>MemoNew<CR>
