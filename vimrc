@@ -15,6 +15,11 @@ Plug 'Shougo/unite.vim'
 Plug 'glidenote/memolist.vim'
 Plug 'tpope/vim-fugitive'
 
+if 16 <= &t_Co
+	Plug 'bling/vim-airline'
+	let g:airline#extensions#tabline#enabled = 1
+endif
+
 " colorscheme
 Plug 'tomasr/molokai'
 Plug 'keith/parsec.vim'
