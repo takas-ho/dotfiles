@@ -46,6 +46,8 @@ set scrolloff=5
 " Shift-jis対応
 set fileencodings=utf-8,sjis
 
+colorscheme industry
+
 " コード補完
 let g:neocomplete#enable_at_startup = 1
 let s:neco_dicts_dir = $HOME . '/.vim/plugged/dicts'
