@@ -11,9 +11,14 @@ Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'rcmdnk/vim-markdown', { 'for': ['markdown']}
 Plug 'rhysd/vim-gfm-syntax', { 'for': ['markdown']}
-Plug 'Shougo/unite.vim'
 Plug 'glidenote/memolist.vim'
 Plug 'tpope/vim-fugitive'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle'}
+
+if 16 <= &t_Co
+	Plug 'bling/vim-airline'
+	let g:airline#extensions#tabline#enabled = 1
+endif
 
 " colorscheme
 Plug 'tomasr/molokai'
@@ -39,7 +44,9 @@ augroup END
 set scrolloff=5
 
 " Shift-jis対応
-set fileencodings=sjis,utf-8
+set fileencodings=utf-8,sjis
+
+colorscheme industry
 
 " コード補完
 let g:neocomplete#enable_at_startup = 1
@@ -161,15 +168,7 @@ let mapleader = "\<Space>"
 " vimgrep結果をcopenせずに開く
 autocmd QuickfixCmdPost * copen
 
-" Unite
-let g:unite_enable_start_insert=1
-let g:unite_source_history_yank_enable =1
-let g:unite_source_file_mru_limit = 100
-nnoremap <Leader>uy :<C-u>Unite history/yank<CR>
-nnoremap <Leader>ub :<C-u>Unite buffer<CR>
-nnoremap <Leader>uf :<C-u>UniteWithBufferDir -buffer-name=files file -default-action=tabopen<CR>
-nnoremap <Leader>ur :<C-u>Unite -buffer-name=register register<CR>
-nnoremap <Leader>uu :<C-u>Unite file_mru buffer -default-action=tabopen<CR>
+nnoremap <Leader>ee :<C-u>NERDTreeToggle<CR>
 
 " memolist
 nnoremap <Leader>mn  :<C-u>MemoNew<CR>
@@ -177,6 +176,4 @@ nnoremap <Leader>ml  :<C-u>MemoList<CR>
 nnoremap <Leader>mg  :<C-u>MemoGrep<CR>
 let g:memolist_memo_suffix = "md"
 let g:memolist_qfixgrep = 1
-let g:memolist_unite = 1
-let g:memolist_unite_source = "file_rec"
-let g:memolist_unite_option = "-auto-preview -start-insert"
+let g:memolist_ex_cmd = 'NERDTree'
