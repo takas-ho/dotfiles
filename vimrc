@@ -41,6 +41,7 @@ augroup cursorline
 	autocmd WinLeave * setlocal nocursorline
 augroup END
 
+set backspace=start,eol,indent		" Backspaceで文字の削除とeol,indentも削除可能に
 set scrolloff=5
 
 " Shift-jis対応
