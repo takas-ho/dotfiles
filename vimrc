@@ -43,6 +43,7 @@ augroup END
 
 set backspace=start,eol,indent		" Backspaceで文字の削除とeol,indentも削除可能に
 set whichwrap=b,s,[,],<,>,~			" カーソルキーでeolをまたげるように
+set mouse=							" ターミナルごとに動作が異なるらしいマウス連動はしない
 set scrolloff=5
 
 " Shift-jis対応
