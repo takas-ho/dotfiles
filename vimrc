@@ -3,7 +3,12 @@ if has('vim_starting')
 	set runtimepath+=~/.vim/plugged/vim-plug
 endif
 
-if has('unix') && &term =~# '^xterm' && &t_Co < 256
+let s:is_windows = has('win16') || has('win32') || has('win64')
+let s:is_cygwin  = has('win32unix')
+let s:is_gui     = has('gui_running')
+let s:is_unix    = has('unix')
+let s:is_mac     = has('mac')
+if (s:is_unix || s:is_cygwin) && &term =~# '^xterm' && &t_Co < 256
 	set t_Co=256
 endif
 
