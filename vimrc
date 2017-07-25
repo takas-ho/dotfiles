@@ -3,6 +3,10 @@ if has('vim_starting')
 	set runtimepath+=~/.vim/plugged/vim-plug
 endif
 
+if has('unix') && &term =~# '^xterm' && &t_Co < 256
+	set t_Co=256
+endif
+
 call plug#begin('~/.vim/plugged')
 
 Plug 'vim-jp/vimdoc-ja'
