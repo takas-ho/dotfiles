@@ -24,7 +24,9 @@ Plug 'glidenote/memolist.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle'}
 
-if 16 <= &t_Co
+if s:is_gui
+	Plug 'bling/vim-airline'
+elseif 16 <= &t_Co
 	Plug 'bling/vim-airline'
 	let g:airline#extensions#tabline#enabled = 1
 endif
