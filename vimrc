@@ -184,7 +184,7 @@ let mapleader = "\<Space>"
 autocmd QuickfixCmdPost * copen
 
 nnoremap <Leader>ev  :<C-u>tabnew $MYVIMRC<CR>
-nnoremap <Leader>ee :<C-u>NERDTreeToggle<CR>
+nnoremap <Leader>ee  :<C-u>NERDTreeToggle<CR>
 
 nnoremap <Leader>w   :w<CR>
 
