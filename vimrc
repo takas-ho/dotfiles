@@ -3,7 +3,12 @@ if has('vim_starting')
 	set runtimepath+=~/.vim/plugged/vim-plug
 endif
 
-if has('unix') && &term =~# '^xterm' && &t_Co < 256
+let s:is_windows = has('win16') || has('win32') || has('win64')
+let s:is_cygwin  = has('win32unix')
+let s:is_gui     = has('gui_running')
+let s:is_unix    = has('unix')
+let s:is_mac     = has('mac')
+if (s:is_unix || s:is_cygwin) && &term =~# '^xterm' && &t_Co < 256
 	set t_Co=256
 endif
 
@@ -19,7 +24,9 @@ Plug 'glidenote/memolist.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle'}
 
-if 16 <= &t_Co
+if s:is_gui
+	Plug 'bling/vim-airline'
+elseif 16 <= &t_Co
 	Plug 'bling/vim-airline'
 	let g:airline#extensions#tabline#enabled = 1
 endif
@@ -46,7 +53,7 @@ augroup cursorline
 augroup END
 
 set backspace=start,eol,indent		" Backspaceで文字の削除とeol,indentも削除可能に
-set whichwrap=b,s,[,],<,>,~			" カーソルキーでeolをまたげるように
+set whichwrap=b,s,h,l,[,],<,>,~		" カーソルキーでeolをまたげるように
 set mouse=							" ターミナルごとに動作が異なるらしいマウス連動はしない
 set laststatus=2					" ステータス行を常に表示
 set scrolloff=5
@@ -176,7 +183,10 @@ let mapleader = "\<Space>"
 " vimgrep結果をcopenせずに開く
 autocmd QuickfixCmdPost * copen
 
-nnoremap <Leader>ee :<C-u>NERDTreeToggle<CR>
+nnoremap <Leader>ev  :<C-u>tabnew $MYVIMRC<CR>
+nnoremap <Leader>ee  :<C-u>NERDTreeToggle<CR>
+
+nnoremap <Leader>w   :w<CR>
 
 " memolist
 nnoremap <Leader>mn  :<C-u>MemoNew<CR>

@@ -134,6 +134,8 @@ fi
 export GIT_PS1_SHOWDIRTYSTATE=true
 export PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;33m\]\w$(__git_ps1) \[\033[01;34m\]\$\[\033[00m\] '
 
+export GIT_MERGE_AUTOEDIT=no
+
 alias mvimnew=/usr/local/bin/mvim
 alias mvim="mvimnew --remote-tab-silent"
 alias gvimnew=mvimnew
