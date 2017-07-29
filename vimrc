@@ -53,7 +53,7 @@ augroup cursorline
 augroup END
 
 set backspace=start,eol,indent		" Backspaceで文字の削除とeol,indentも削除可能に
-set whichwrap=b,s,[,],<,>,~			" カーソルキーでeolをまたげるように
+set whichwrap=b,s,h,l,[,],<,>,~		" カーソルキーでeolをまたげるように
 set mouse=							" ターミナルごとに動作が異なるらしいマウス連動はしない
 set laststatus=2					" ステータス行を常に表示
 set scrolloff=5
