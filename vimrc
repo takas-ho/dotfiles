@@ -183,6 +183,7 @@ let mapleader = "\<Space>"
 " vimgrep結果をcopenせずに開く
 autocmd QuickfixCmdPost * copen
 
+nnoremap <Leader>ev  :<C-u>tabnew $MYVIMRC<CR>
 nnoremap <Leader>ee :<C-u>NERDTreeToggle<CR>
 
 " memolist
