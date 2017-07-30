@@ -24,6 +24,9 @@ Plug 'glidenote/memolist.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle'}
 
+Plug 'cocopon/vaffle.vim'
+let g:vaffle_show_hidden_files = 1
+
 if s:is_gui
 	Plug 'bling/vim-airline'
 elseif 16 <= &t_Co
