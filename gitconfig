@@ -13,7 +13,7 @@
 	sl = !sh -c '/usr/local/src/smartgit/bin/smartgit.sh --log \"$(git rev-parse --show-toplevel)\"' &
 	kr = !sh -c 'gitkraken --path \"$(git rev-parse --show-toplevel)\"' > /dev/null &
 [push]
-	default = upstream
+	default = simple
 
 [difftool "kdiff3"]
     path = /usr/bin/kdiff3
