@@ -22,3 +22,4 @@ set title    "編集中のファイル名を表示する
 set ruler    "座標を表示する
 
 nnoremap <Leader>eg  :<C-u>tabnew $MYGVIMRC<CR>
+nnoremap <Leader>sg  :<C-u>source $MYGVIMRC<CR>
