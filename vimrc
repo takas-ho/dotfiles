@@ -187,6 +187,9 @@ cnoremap <C-n>       <Down>
 
 let mapleader = "\<Space>"
 
+" Find merge conflict markers
+nnoremap <leader>fc  /\v^[<\|=>]{7}( .*\|$)<CR>
+
 " Navigation for tabs
 nnoremap th  :tabfirst<CR>
 nnoremap tj  :tabprev<CR>
