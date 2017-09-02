@@ -144,6 +144,7 @@ set display=lastline
 " 対応カッコと強調表示時間
 set showmatch
 set matchtime=1
+source $VIMRUNTIME/macros/matchit.vim " Vimの「%」を拡張する
 
 " 補完メニュー行数
 "set pumheight=10
