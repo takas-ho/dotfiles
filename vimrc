@@ -187,6 +187,17 @@ cnoremap <C-n>       <Down>
 
 let mapleader = "\<Space>"
 
+" Navigation for tabs
+nnoremap th  :tabfirst<CR>
+nnoremap tj  :tabprev<CR>
+nnoremap tk  :tabnext<CR>
+nnoremap tl  :tablast<CR>
+nnoremap tm  :tabm<Space>
+nnoremap tn  :tabnew<CR>
+nnoremap td  :tabclose<CR>
+
+nnoremap tt  :tabnext<CR>
+
 " vimgrep結果をcopenせずに開く
 autocmd QuickfixCmdPost * copen
 
