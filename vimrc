@@ -47,7 +47,7 @@ syntax enable
 " 行番号表示
 set number
 
-set cursorline
+set cursorline				" 現在の行を強調表示
 " カレントウィンドウにのみ罫線を引く
 augroup cursorline
 	autocmd!
