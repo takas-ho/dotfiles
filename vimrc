@@ -23,6 +23,7 @@ Plug 'rhysd/vim-gfm-syntax', { 'for': ['markdown']}
 Plug 'glidenote/memolist.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle'}
+Plug 'ctrlpvim/ctrlp.vim'
 
 Plug 'cocopon/vaffle.vim'
 let g:vaffle_show_hidden_files = 1
@@ -212,6 +213,7 @@ nnoremap <Leader>ev  :<C-u>tabnew $MYVIMRC<CR>
 nnoremap <Leader>sv  :<C-u>source $MYVIMRC<CR>
 nnoremap <Leader>ee  :<C-u>NERDTreeToggle<CR>
 
+nnoremap <Leader>o   :CtrlP<CR>
 nnoremap <Leader>w   :w<CR>
 nmap     ,U          :set encoding=utf-8<CR>
 nmap     ,E          :set encoding=euc-jp<CR>
