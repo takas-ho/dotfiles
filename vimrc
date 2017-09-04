@@ -191,6 +191,8 @@ let mapleader = "\<Space>"
 " Find merge conflict markers
 nnoremap <leader>fc  /\v^[<\|=>]{7}( .*\|$)<CR>
 
+cnoremap cd.         lcd %:p:h	" Change Working Directory to that of the current file
+
 " Navigation for tabs
 nnoremap th  :tabfirst<CR>
 nnoremap tj  :tabprev<CR>
