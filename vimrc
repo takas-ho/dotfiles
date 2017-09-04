@@ -192,6 +192,7 @@ let mapleader = "\<Space>"
 nnoremap <leader>fc  /\v^[<\|=>]{7}( .*\|$)<CR>
 
 cnoremap cd.         lcd %:p:h	" Change Working Directory to that of the current file
+vnoremap .           :normal .<CR>	" Allow using the repeat operator with a visual selection
 
 " Navigation for tabs
 nnoremap th  :tabfirst<CR>
