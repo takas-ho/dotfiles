@@ -73,9 +73,6 @@ set mouse=							" ターミナルごとに動作が異なるらしいマウス�
 set laststatus=2					" ステータス行を常に表示
 set scrolloff=5
 
-" Shift-jis対応
-set fileencodings=utf-8,sjis
-
 " コード補完
 let g:neocomplete#enable_at_startup = 1
 let s:neco_dicts_dir = $HOME . '/.vim/plugged/dicts'
@@ -95,6 +92,15 @@ augroup fileTypeIndent
 	autocmd BufNewFile,BufRead *.py setlocal tabstop=4 softtabstop=4 shiftwidth=4
 	autocmd BufNewFile,BufRead *.rb setlocal tabstop=2 softtabstop=2 shiftwidth=2
 augroup END
+
+if &term == 'win32'
+	set termencoding=cp932
+else
+	set termencoding=utf-8
+endif
+set encoding=utf-8
+set fileencoding=utf-8
+set fileencodings=utf-8,cp932
 
 " 不可視文字を表示
 set list
