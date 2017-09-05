@@ -48,6 +48,17 @@ syntax enable
 " 行番号表示
 set number
 
+if s:is_windows || s:is_cygwin
+	if &t_Co < 256
+		"colorscheme industry
+		colorscheme pablo
+	else
+		colorscheme molokai
+	endif
+else
+	colorscheme industry
+endif
+
 set cursorline				" 現在の行を強調表示
 " カレントウィンドウにのみ罫線を引く
 augroup cursorline
@@ -64,8 +75,6 @@ set scrolloff=5
 
 " Shift-jis対応
 set fileencodings=utf-8,sjis
-
-colorscheme industry
 
 " コード補完
 let g:neocomplete#enable_at_startup = 1
