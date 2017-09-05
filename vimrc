@@ -102,6 +102,15 @@ set encoding=utf-8
 set fileencoding=utf-8
 set fileencodings=utf-8,cp932
 
+" 見た目
+
+set smartindent							" インデントはスマートインデント
+set visualbell							" ビープ音を可視化
+set showmatch							" 対応する括弧表示
+set matchtime=1							" 対応カッコ強調表示時間
+source $VIMRUNTIME/macros/matchit.vim	" Vimの「%」を拡張する
+set display=lastline					" 長い行でも表示しきる
+
 " 不可視文字を表示
 set list
 " 不可視文字を表示の詳細設定
@@ -152,14 +161,6 @@ nnoremap <C-h><C-h> :<C-u>help<Space><C-r><C-w><Enter>
 nnoremap gc `[v`]
 vnoremap gc :<C-u>normal gc<Enter>
 onoremap gc :<C-u>normal gc<Enter>
-
-" 長い行でも表示しきる
-set display=lastline
-
-" 対応カッコと強調表示時間
-set showmatch
-set matchtime=1
-source $VIMRUNTIME/macros/matchit.vim " Vimの「%」を拡張する
 
 " 補完メニュー行数
 "set pumheight=10
