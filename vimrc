@@ -23,12 +23,16 @@ Plug 'rhysd/vim-gfm-syntax', { 'for': ['markdown']}
 Plug 'glidenote/memolist.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle'}
+Plug 'ctrlpvim/ctrlp.vim'
+
+Plug 'cocopon/vaffle.vim'
+let g:vaffle_show_hidden_files = 1
 
 if s:is_gui
 	Plug 'bling/vim-airline'
 elseif 16 <= &t_Co
 	Plug 'bling/vim-airline'
-	let g:airline#extensions#tabline#enabled = 1
+	set showtabline=2					" タブを常に表示
 endif
 
 " colorscheme
@@ -44,7 +48,18 @@ syntax enable
 " 行番号表示
 set number
 
-set cursorline
+if s:is_windows || s:is_cygwin
+	if &t_Co < 256
+		"colorscheme industry
+		colorscheme pablo
+	else
+		colorscheme molokai
+	endif
+else
+	colorscheme industry
+endif
+
+set cursorline				" 現在の行を強調表示
 " カレントウィンドウにのみ罫線を引く
 augroup cursorline
 	autocmd!
@@ -56,12 +71,7 @@ set backspace=start,eol,indent		" Backspaceで文字の削除とeol,indentも削
 set whichwrap=b,s,h,l,[,],<,>,~		" カーソルキーでeolをまたげるように
 set mouse=							" ターミナルごとに動作が異なるらしいマウス連動はしない
 set laststatus=2					" ステータス行を常に表示
-set scrolloff=5
-
-" Shift-jis対応
-set fileencodings=utf-8,sjis
-
-colorscheme industry
+set scrolloff=5						" カーソルの上端または下端に最低5行は表示
 
 " コード補完
 let g:neocomplete#enable_at_startup = 1
@@ -82,6 +92,24 @@ augroup fileTypeIndent
 	autocmd BufNewFile,BufRead *.py setlocal tabstop=4 softtabstop=4 shiftwidth=4
 	autocmd BufNewFile,BufRead *.rb setlocal tabstop=2 softtabstop=2 shiftwidth=2
 augroup END
+
+if &term == 'win32'
+	set termencoding=cp932
+else
+	set termencoding=utf-8
+endif
+set encoding=utf-8
+set fileencoding=utf-8
+set fileencodings=utf-8,cp932
+
+" 見た目
+
+set smartindent							" インデントはスマートインデント
+set visualbell							" ビープ音を可視化
+set showmatch							" 対応する括弧表示
+set matchtime=1							" 対応カッコ強調表示時間
+source $VIMRUNTIME/macros/matchit.vim	" Vimの「%」を拡張する
+set display=lastline					" 長い行でも表示しきる
 
 " 不可視文字を表示
 set list
@@ -115,6 +143,7 @@ set wrapscan
 " 検索語をハイライト表示
 set hlsearch
 
+nnoremap <Esc><Esc> :nohlsearch<CR><Esc>	" ESC連打でハイライト解除
 " 上下移動「論理行」「表示行」を入れ替え
 noremap j gj
 noremap k gk
@@ -132,13 +161,6 @@ nnoremap <C-h><C-h> :<C-u>help<Space><C-r><C-w><Enter>
 nnoremap gc `[v`]
 vnoremap gc :<C-u>normal gc<Enter>
 onoremap gc :<C-u>normal gc<Enter>
-
-" 長い行でも表示しきる
-set display=lastline
-
-" 対応カッコと強調表示時間
-set showmatch
-set matchtime=1
 
 " 補完メニュー行数
 "set pumheight=10
@@ -178,15 +200,41 @@ endif
 
 set helplang=ja,en
 
+" 標準だとコマンド履歴のフィルタリングまではしないからするように
+cnoremap <C-p>       <Up>
+cnoremap <C-n>       <Down>
+
 let mapleader = "\<Space>"
+
+" Find merge conflict markers
+nnoremap <leader>fc  /\v^[<\|=>]{7}( .*\|$)<CR>
+
+cnoremap cd.         lcd %:p:h	" Change Working Directory to that of the current file
+vnoremap .           :normal .<CR>	" Allow using the repeat operator with a visual selection
+
+" Navigation for tabs
+nnoremap th  :tabfirst<CR>
+nnoremap tj  :tabprev<CR>
+nnoremap tk  :tabnext<CR>
+nnoremap tl  :tablast<CR>
+nnoremap tm  :tabm<Space>
+nnoremap tn  :tabnew<CR>
+nnoremap td  :tabclose<CR>
+
+nnoremap tt  :tabnext<CR>
 
 " vimgrep結果をcopenせずに開く
 autocmd QuickfixCmdPost * copen
 
 nnoremap <Leader>ev  :<C-u>tabnew $MYVIMRC<CR>
+nnoremap <Leader>sv  :<C-u>source $MYVIMRC<CR>
 nnoremap <Leader>ee  :<C-u>NERDTreeToggle<CR>
 
+nnoremap <Leader>o   :CtrlP<CR>
 nnoremap <Leader>w   :w<CR>
+nmap     ,U          :set encoding=utf-8<CR>
+nmap     ,E          :set encoding=euc-jp<CR>
+nmap     ,S          :set encoding=cp932<CR>
 
 " memolist
 nnoremap <Leader>mn  :<C-u>MemoNew<CR>
