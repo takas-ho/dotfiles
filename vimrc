@@ -102,6 +102,10 @@ set encoding=utf-8
 set fileencoding=utf-8
 set fileencodings=utf-8,cp932
 
+if s:is_cygwin
+	set shell=bash		" デフォルトのままだとcmd.exe
+endif
+
 " 見た目
 
 set smartindent							" インデントはスマートインデント
