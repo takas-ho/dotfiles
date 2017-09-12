@@ -108,6 +108,11 @@ endif
 
 " 見た目
 
+" markdown
+hi link htmlItalic LineNr
+hi link htmlBold WarningMsg
+hi link htmlBoldItalic ErrorMsg
+
 set smartindent							" インデントはスマートインデント
 set visualbell							" ビープ音を可視化
 set showmatch							" 対応する括弧表示
