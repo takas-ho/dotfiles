@@ -196,6 +196,7 @@ call s:MakeDirIfNotExist(&directory)
 "File
 set hidden      "ファイル変更中でも他のファイルを開けるようにする
 set autoread    "ファイル内容が変更されると自動読み込みする
+set nofixeol	" ファイル末尾に改行が追加されるのを抑止
 
 "	backup
 set backup
