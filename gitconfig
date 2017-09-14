@@ -1,6 +1,9 @@
 [user]
 	name = HOMMA Takashi
 	email = hommatks@gmail.com
+[core]
+	editor = vim -c \"set fenc=utf-8\"
+	attributesfile = ~/.gitattributes
 [alias]
 	co = "!f(){ git checkout $*;git submodule update --init;};f"
 	br = branch
@@ -16,7 +19,8 @@
 	cpush = !git push origin `git rev-parse --abbrev-ref HEAD`
 [push]
 	default = simple
-
+[fetch]
+	prune = true
 [difftool "kdiff3"]
     path = /usr/bin/kdiff3
     trustExitCode = false
@@ -28,11 +32,6 @@
 	tool = vimdiff
 [mergetool]
 	keepBackup = false
-[core]
-	editor = vim -c \"set fenc=utf-8\"
-	attributesfile = ~/.gitattributes
-[fetch]
-	prune = true
 [rebase]
 	autosquash = true
 [diff "tika"]
