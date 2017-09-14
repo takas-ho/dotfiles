@@ -12,6 +12,7 @@
 	s = status --short --branch
 	sl = !sh -c '/usr/local/src/smartgit/bin/smartgit.sh --log \"$(git rev-parse --show-toplevel)\"' &
 	kr = !sh -c 'gitkraken --path \"$(git rev-parse --show-toplevel)\"' > /dev/null &
+	cpush = !git push origin `git rev-parse --abbrev-ref HEAD`
 [push]
 	default = simple
 
