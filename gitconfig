@@ -5,7 +5,7 @@
 	editor = vim -c \"set fenc=utf-8\"
 	attributesfile = ~/.gitattributes
 [alias]
-	co = "!f(){ git checkout $*;git submodule update --init;};f"
+	co = "!f(){ git checkout $*;git submodule update --init;git config branch.\"$(git rev-parse --abbrev-ref HEAD)\".description;};f"
 	br = branch
 	ci = commit
 	st = status
