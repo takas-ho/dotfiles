@@ -1,3 +1,14 @@
+if &term == 'win32'
+	set termencoding=cp932
+else
+	set termencoding=utf-8
+endif
+set encoding=utf-8
+set fileencoding=utf-8
+set fileencodings=utf-8,cp932
+
+scriptencoding=utf-8
+
 if has('vim_starting')
 	set nocompatible
 	set runtimepath+=~/.vim/plugged/vim-plug
@@ -93,16 +104,16 @@ augroup fileTypeIndent
 	autocmd BufNewFile,BufRead *.rb setlocal tabstop=2 softtabstop=2 shiftwidth=2
 augroup END
 
-if &term == 'win32'
-	set termencoding=cp932
-else
-	set termencoding=utf-8
+if s:is_cygwin
+	set shell=bash		" デフォルトのままだとcmd.exe
 endif
-set encoding=utf-8
-set fileencoding=utf-8
-set fileencodings=utf-8,cp932
 
 " 見た目
+
+" markdown
+hi link htmlItalic LineNr
+hi link htmlBold WarningMsg
+hi link htmlBoldItalic ErrorMsg
 
 set smartindent							" インデントはスマートインデント
 set visualbell							" ビープ音を可視化
@@ -110,6 +121,9 @@ set showmatch							" 対応する括弧表示
 set matchtime=1							" 対応カッコ強調表示時間
 source $VIMRUNTIME/macros/matchit.vim	" Vimの「%」を拡張する
 set display=lastline					" 長い行でも表示しきる
+
+" ステータスラインを常に表示
+set laststatus=2
 
 " 不可視文字を表示
 set list
@@ -184,6 +198,7 @@ call s:MakeDirIfNotExist(&directory)
 "File
 set hidden      "ファイル変更中でも他のファイルを開けるようにする
 set autoread    "ファイル内容が変更されると自動読み込みする
+set nofixeol	" ファイル末尾に改行が追加されるのを抑止
 
 "	backup
 set backup
@@ -204,7 +219,7 @@ set helplang=ja,en
 cnoremap <C-p>       <Up>
 cnoremap <C-n>       <Down>
 
-let mapleader = "\<Space>"
+let g:mapleader = "\<Space>"
 
 " Find merge conflict markers
 nnoremap <leader>fc  /\v^[<\|=>]{7}( .*\|$)<CR>
@@ -224,7 +239,10 @@ nnoremap td  :tabclose<CR>
 nnoremap tt  :tabnext<CR>
 
 " vimgrep結果をcopenせずに開く
-autocmd QuickfixCmdPost * copen
+augroup quickfix-open
+	autocmd!
+	autocmd QuickfixCmdPost * copen
+augroup END
 
 nnoremap <Leader>ev  :<C-u>tabnew $MYVIMRC<CR>
 nnoremap <Leader>sv  :<C-u>source $MYVIMRC<CR>

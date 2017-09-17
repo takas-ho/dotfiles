@@ -1,20 +1,26 @@
 [user]
 	name = HOMMA Takashi
 	email = hommatks@gmail.com
+[core]
+	editor = vim -c \"set fenc=utf-8\"
+	attributesfile = ~/.gitattributes
 [alias]
-	co = "!f(){ git checkout $*;git submodule update --init;};f"
+	co = "!f(){ git checkout $*;git submodule update --init;git config branch.\"$(git rev-parse --abbrev-ref HEAD)\".description;};f"
 	br = branch
 	ci = commit
 	st = status
 	sm = submodule
-	l = log --graph -n 25 --date=iso --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(green)- %an, %ad%x08%x08%x08%x08%x08%x08%x08%x08%x08%Creset'
+	mt = mergetool
+	l = log --graph -n 30 --date=iso --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(green)- %an, %ad%x08%x08%x08%x08%x08%x08%x08%x08%x08%Creset'
 	ll = log --graph -n 200 --date=iso --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(green)- %an, %ad%x08%x08%x08%x08%x08%x08%x08%x08%x08%Creset'
 	s = status --short --branch
 	sl = !sh -c '/usr/local/src/smartgit/bin/smartgit.sh --log \"$(git rev-parse --show-toplevel)\"' &
 	kr = !sh -c 'gitkraken --path \"$(git rev-parse --show-toplevel)\"' > /dev/null &
+	cpush = !git push origin `git rev-parse --abbrev-ref HEAD`
 [push]
 	default = simple
-
+[fetch]
+	prune = true
 [difftool "kdiff3"]
     path = /usr/bin/kdiff3
     trustExitCode = false
@@ -22,18 +28,10 @@
     prompt = false
 [diff]
     tool = kdiff3
-[mergetool "kdiff3"]
-    path = /usr/bin/kdiff3
-    trustExitCode = false
-[mergetool]
-    keepBackup = false
 [merge]
-    tool = kdiff3
-[core]
-	editor = vim -c \"set fenc=utf-8\"
-	attributesfile = ~/.gitattributes
-[fetch]
-	prune = true
+	tool = vimdiff
+[mergetool]
+	keepBackup = false
 [rebase]
 	autosquash = true
 [diff "tika"]
