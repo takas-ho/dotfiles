@@ -47,6 +47,7 @@ if executable('xbuild')
 endif
 
 " 見た目
+Plug 'slim-template/vim-slim'
 Plug 'Yggdroot/indentLine', { 'on': 'IndentLinesEnable' }
 autocmd! User indentLine doautocmd indentLine Syntax
 "let g:indentLine_color_term = 239
