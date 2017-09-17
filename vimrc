@@ -44,6 +44,7 @@ let g:vaffle_show_hidden_files = 1
 
 if executable('xbuild')
 	Plug 'OmniSharp/omnisharp-vim', { 'for': ['cs', 'vb'], 'do': 'cd server; xbuild' }
+	Plug 'tpope/vim-dispatch'
 endif
 
 " 見た目
@@ -111,6 +112,30 @@ endif
 augroup fileTypeSyntax
 	autocmd!
 	autocmd BufRead,BufNewFile *.vb setfiletype vbnet
+augroup END
+augroup omnisharp_commands
+    autocmd!
+
+    "Set autocomplete function to OmniSharp (if not using YouCompleteMe completion plugin)
+    autocmd FileType cs setlocal omnifunc=OmniSharp#Complete
+    autocmd FileType vb setlocal omnifunc=OmniSharp#Complete
+
+    " Synchronous build (blocks Vim)
+    "autocmd FileType cs nnoremap <F5> :wa!<cr>:OmniSharpBuild<cr>
+    " Builds can also run asynchronously with vim-dispatch installed
+    autocmd FileType cs nnoremap <leader>b :wa!<cr>:OmniSharpBuildAsync<cr>
+    autocmd FileType vb nnoremap <leader>b :wa!<cr>:OmniSharpBuildAsync<cr>
+    "" automatic syntax check on events (TextChanged requires Vim 7.4)
+    "autocmd BufEnter,TextChanged,InsertLeave *.cs SyntasticCheck
+    "autocmd BufEnter,TextChanged,InsertLeave *.vb SyntasticCheck
+
+    " Automatically add new cs files to the nearest project on save
+    autocmd BufWritePost *.cs call OmniSharp#AddToProject()
+    autocmd BufWritePost *.vb call OmniSharp#AddToProject()
+
+    "show type information automatically when the cursor stops moving
+    autocmd CursorHold *.cs call OmniSharp#TypeLookupWithoutDocumentation()
+    autocmd CursorHold *.vb call OmniSharp#TypeLookupWithoutDocumentation()
 augroup END
 
 " タブ幅
