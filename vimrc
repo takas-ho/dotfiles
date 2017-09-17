@@ -1,3 +1,14 @@
+if &term == 'win32'
+	set termencoding=cp932
+else
+	set termencoding=utf-8
+endif
+set encoding=utf-8
+set fileencoding=utf-8
+set fileencodings=utf-8,cp932
+
+scriptencoding=utf-8
+
 if has('vim_starting')
 	set nocompatible
 	set runtimepath+=~/.vim/plugged/vim-plug
@@ -92,15 +103,6 @@ augroup fileTypeIndent
 	autocmd BufNewFile,BufRead *.py setlocal tabstop=4 softtabstop=4 shiftwidth=4
 	autocmd BufNewFile,BufRead *.rb setlocal tabstop=2 softtabstop=2 shiftwidth=2
 augroup END
-
-if &term == 'win32'
-	set termencoding=cp932
-else
-	set termencoding=utf-8
-endif
-set encoding=utf-8
-set fileencoding=utf-8
-set fileencodings=utf-8,cp932
 
 if s:is_cygwin
 	set shell=bash		" デフォルトのままだとcmd.exe
