@@ -42,6 +42,10 @@ Plug 'yuki2cb/vim-vbnet'
 Plug 'cocopon/vaffle.vim'
 let g:vaffle_show_hidden_files = 1
 
+if executable('xbuild')
+	Plug 'OmniSharp/omnisharp-vim', { 'for': ['cs', 'vb'], 'do': 'cd server; xbuild' }
+endif
+
 " 見た目
 Plug 'Yggdroot/indentLine', { 'on': 'IndentLinesEnable' }
 autocmd! User indentLine doautocmd indentLine Syntax
