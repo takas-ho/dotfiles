@@ -35,6 +35,7 @@ Plug 'glidenote/memolist.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle'}
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'yuki2cb/vim-vbnet'
 
 Plug 'cocopon/vaffle.vim'
 let g:vaffle_show_hidden_files = 1
@@ -93,6 +94,11 @@ if isdirectory(s:neco_dicts_dir)
 		\   'javascript': s:neco_dicts_dir . '/jquery.dict',
 		\ }
 endif
+
+augroup fileTypeSyntax
+	autocmd!
+	autocmd BufRead,BufNewFile *.vb setfiletype vbnet
+augroup END
 
 " タブ幅
 set tabstop=4
