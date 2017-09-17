@@ -219,7 +219,7 @@ set helplang=ja,en
 cnoremap <C-p>       <Up>
 cnoremap <C-n>       <Down>
 
-let mapleader = "\<Space>"
+let g:mapleader = "\<Space>"
 
 " Find merge conflict markers
 nnoremap <leader>fc  /\v^[<\|=>]{7}( .*\|$)<CR>
