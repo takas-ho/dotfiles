@@ -42,6 +42,7 @@ Plug 'yuki2cb/vim-vbnet'
 Plug 'cocopon/vaffle.vim'
 let g:vaffle_show_hidden_files = 1
 
+Plug 'vim-syntastic/syntastic'
 if executable('xbuild')
 	Plug 'OmniSharp/omnisharp-vim', { 'for': ['cs', 'vb'], 'do': 'cd server; xbuild' }
 	Plug 'tpope/vim-dispatch'
