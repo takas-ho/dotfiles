@@ -239,7 +239,10 @@ nnoremap td  :tabclose<CR>
 nnoremap tt  :tabnext<CR>
 
 " vimgrep結果をcopenせずに開く
-autocmd QuickfixCmdPost * copen
+augroup quickfix-open
+	autocmd!
+	autocmd QuickfixCmdPost * copen
+augroup END
 
 nnoremap <Leader>ev  :<C-u>tabnew $MYVIMRC<CR>
 nnoremap <Leader>sv  :<C-u>source $MYVIMRC<CR>
