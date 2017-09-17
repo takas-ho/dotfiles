@@ -10,8 +10,10 @@ set fileencodings=utf-8,cp932
 scriptencoding=utf-8
 
 if has('vim_starting')
-	set nocompatible
-	set runtimepath+=~/.vim/plugged/vim-plug
+    if &compatible
+        set nocompatible
+    endif
+    set runtimepath+=~/.vim/plugged/vim-plug
 endif
 
 let s:is_windows = has('win16') || has('win32') || has('win64')
@@ -39,6 +41,12 @@ Plug 'yuki2cb/vim-vbnet'
 
 Plug 'cocopon/vaffle.vim'
 let g:vaffle_show_hidden_files = 1
+
+" 見た目
+Plug 'Yggdroot/indentLine', { 'on': 'IndentLinesEnable' }
+autocmd! User indentLine doautocmd indentLine Syntax
+"let g:indentLine_color_term = 239
+"let g:indentLine_enabled = 1
 
 if s:is_gui
 	Plug 'bling/vim-airline'
@@ -220,6 +228,11 @@ if has('persistent_undo')
 endif
 
 set helplang=ja,en
+
+"augroup vimrc
+"	autocmd!
+"	autocmd FileType slim IndentLinesEnable
+"augroup End
 
 " 標準だとコマンド履歴のフィルタリングまではしないからするように
 cnoremap <C-p>       <Up>
