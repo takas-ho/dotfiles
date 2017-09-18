@@ -34,6 +34,18 @@ Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle'}
 Plug 'ctrlpvim/ctrlp.vim'
 
+let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'			" キャッシュディレクトリ
+let g:ctrlp_clear_cache_on_exit = 0						" キャッシュを終了時に削除しない
+let g:ctrlp_lazy_update = 1								" 遅延再描画
+let g:ctrlp_root_markers = ['Gemfile', 'pom.xml', 'build.xml', 'package.json', '.gitignore']	" ルートパスと認識させるためのファイル
+let g:ctrlp_max_height = 20								" CtrlPのウィンドウ最大高さ
+" 無視するディレクトリ
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn)$|_v\/(bin|obj)$',
+  \ 'file': '\v\.(exe|so|dll)$',
+  \ 'link': 'some_bad_symbolic_links',
+  \ }
+
 Plug 'cocopon/vaffle.vim'
 let g:vaffle_show_hidden_files = 1
 
