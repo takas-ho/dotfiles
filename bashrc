@@ -140,3 +140,8 @@ alias mvimnew=/usr/local/bin/mvim
 alias mvim="mvimnew --remote-tab-silent"
 alias gvimnew=mvimnew
 alias gvim=mvim
+
+# golang
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+

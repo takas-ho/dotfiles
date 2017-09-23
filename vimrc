@@ -46,6 +46,9 @@ elseif 16 <= &t_Co
 	set showtabline=2					" タブを常に表示
 endif
 
+" lang
+Plug 'fatih/vim-go'
+
 " colorscheme
 Plug 'tomasr/molokai'
 Plug 'keith/parsec.vim'
