@@ -130,7 +130,9 @@ augroup goFileType
 	autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
 	autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
 	autocmd FileType go noremap <K>			:<C-u>GoDoc<CR>
+	let g:go_updatetime=500
 	let g:go_auto_type_info = 1				" 関数シグネチャ自動表示
+	let g:go_auto_sameids = 1				" 同名変数ハイライト
 augroup END
 " run :GoBuild or :GoTestCompile based on the go file
 function! s:build_go_files()
