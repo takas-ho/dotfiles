@@ -125,6 +125,10 @@ augroup goFileType
 	let g:go_highlight_build_constraints = 1
 	let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['go'] }
 	let g:syntastic_go_checkers = ['go', 'golint']
+	autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
+	autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
+	autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
+	autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
 augroup END
 " run :GoBuild or :GoTestCompile based on the go file
 function! s:build_go_files()
