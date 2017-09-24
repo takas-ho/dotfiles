@@ -44,6 +44,8 @@ elseif 16 <= &t_Co
 	set showtabline=2					" タブを常に表示
 endif
 
+Plug 'scrooloose/syntastic'
+
 " edit
 Plug 'SirVer/ultisnips'
 
@@ -121,6 +123,8 @@ augroup goFileType
 	let g:go_highlight_methods = 1
 	let g:go_highlight_structs = 1
 	let g:go_highlight_build_constraints = 1
+	let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['go'] }
+	let g:syntastic_go_checkers = ['go', 'golint']
 augroup END
 " run :GoBuild or :GoTestCompile based on the go file
 function! s:build_go_files()
