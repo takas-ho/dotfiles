@@ -129,6 +129,7 @@ augroup goFileType
 	autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
 	autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
 	autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
+	autocmd FileType go noremap <K>			:<C-u>GoDoc<CR>
 augroup END
 " run :GoBuild or :GoTestCompile based on the go file
 function! s:build_go_files()
