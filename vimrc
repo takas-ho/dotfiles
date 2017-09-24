@@ -117,6 +117,9 @@ augroup goFileType
 	autocmd FileType go nnoremap <leader>b	:<C-u>call <SID>build_go_files()<CR>
 	autocmd FileType go nmap <leader>r		<Plug>(go-run)
 	autocmd FileType go nmap <leader>t		<Plug>(go-test)
+	let g:go_highlight_functions = 1
+	let g:go_highlight_methods = 1
+	let g:go_highlight_structs = 1
 augroup END
 " run :GoBuild or :GoTestCompile based on the go file
 function! s:build_go_files()
