@@ -36,3 +36,5 @@
 	autosquash = true
 [diff "tika"]
 	textconv = tika -t
+[ghq]
+	root = ~/go/src

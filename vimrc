@@ -27,8 +27,6 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'vim-jp/vimdoc-ja'
 Plug 'Shougo/neocomplete.vim'
-Plug 'Shougo/neosnippet.vim'
-Plug 'Shougo/neosnippet-snippets'
 Plug 'rcmdnk/vim-markdown', { 'for': ['markdown']}
 Plug 'rhysd/vim-gfm-syntax', { 'for': ['markdown']}
 Plug 'glidenote/memolist.vim'
@@ -45,6 +43,15 @@ elseif 16 <= &t_Co
 	Plug 'bling/vim-airline'
 	set showtabline=2					" タブを常に表示
 endif
+
+Plug 'scrooloose/syntastic'
+
+" edit
+Plug 'SirVer/ultisnips'
+
+" lang
+Plug 'fatih/vim-go'
+Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
 
 " colorscheme
 Plug 'tomasr/molokai'
@@ -98,11 +105,44 @@ endif
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
-augroup fileTypeIndent
+augroup myFIleType
 	autocmd!
 	autocmd BufNewFile,BufRead *.py setlocal tabstop=4 softtabstop=4 shiftwidth=4
 	autocmd BufNewFile,BufRead *.rb setlocal tabstop=2 softtabstop=2 shiftwidth=2
+	autocmd BufNewFile,BufRead *.go setlocal tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab autowrite
 augroup END
+augroup goFileType
+	autocmd!
+	autocmd FileType go noremap <C-n>		:<C-u>cnext<CR>
+	autocmd FileType go noremap <C-m>		:<C-u>cprevious<CR>
+	autocmd FileType go nnoremap <leader>a	:<C-u>cclose<CR>
+	autocmd FileType go nnoremap <leader>b	:<C-u>call <SID>build_go_files()<CR>
+	autocmd FileType go nmap <leader>r		<Plug>(go-run)
+	autocmd FileType go nmap <leader>t		<Plug>(go-test)
+	let g:go_highlight_functions = 1
+	let g:go_highlight_methods = 1
+	let g:go_highlight_structs = 1
+	let g:go_highlight_build_constraints = 1
+	let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['go'] }
+	let g:syntastic_go_checkers = ['go', 'golint']
+	autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
+	autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
+	autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
+	autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
+	autocmd FileType go noremap <K>			:<C-u>GoDoc<CR>
+	let g:go_updatetime=500
+	let g:go_auto_type_info = 1				" 関数シグネチャ自動表示
+	let g:go_auto_sameids = 1				" 同名変数ハイライト
+augroup END
+" run :GoBuild or :GoTestCompile based on the go file
+function! s:build_go_files()
+  let l:file = expand('%')
+  if l:file =~# '^\f\+_test\.go$'
+    call go#test#Test(0, 1)
+  elseif l:file =~# '^\f\+\.go$'
+    call go#cmd#Build(0)
+  endif
+endfunction
 
 if s:is_cygwin
 	set shell=bash		" デフォルトのままだとcmd.exe
