@@ -30,7 +30,6 @@ Plug 'Shougo/neocomplete.vim'
 Plug 'rcmdnk/vim-markdown', { 'for': ['markdown']}
 Plug 'rhysd/vim-gfm-syntax', { 'for': ['markdown']}
 Plug 'glidenote/memolist.vim'
-Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle'}
 Plug 'ctrlpvim/ctrlp.vim'
 
@@ -48,6 +47,12 @@ let g:ctrlp_custom_ignore = {
 
 Plug 'cocopon/vaffle.vim'
 let g:vaffle_show_hidden_files = 1
+
+Plug 'tpope/vim-fugitive'
+Plug 'gregsexton/gitv', { 'on': ['Gitv']}
+let g:Gitv_OpenHorizontal = 1
+let g:Gitv_DoNotMapCtrlKey = 1
+let g:Gitv_TruncateCommitSubjects = 1
 
 if s:is_gui
 	Plug 'bling/vim-airline'
