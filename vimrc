@@ -57,7 +57,7 @@ let g:Gitv_TruncateCommitSubjects = 1
 if s:is_gui
 	Plug 'bling/vim-airline'
 elseif 16 <= &t_Co
-	Plug 'bling/vim-airline'
+	Plug 'itchyny/lightline.vim'
 	set showtabline=2					" タブを常に表示
 endif
 
