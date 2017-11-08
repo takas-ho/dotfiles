@@ -136,10 +136,10 @@ export PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;33m\]\w$(__git_ps1) \[\03
 
 export GIT_MERGE_AUTOEDIT=no
 
-alias mvimnew=/usr/local/bin/mvim
-alias mvim="mvimnew --remote-tab-silent"
-alias gvimnew=mvimnew
-alias gvim=mvim
+# MacVim-Kaoriya
+export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
+alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
+alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
 
 # golang
 export GOPATH=$HOME/go
