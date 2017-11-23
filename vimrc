@@ -45,6 +45,9 @@ let g:ctrlp_custom_ignore = {
   \ 'link': 'some_bad_symbolic_links',
   \ }
 
+Plug 'easymotion/vim-easymotion'
+let g:EasyMotion_use_migemo = 1
+
 Plug 'cocopon/vaffle.vim'
 let g:vaffle_show_hidden_files = 1
 
@@ -318,3 +321,12 @@ nnoremap <Leader>mg  :<C-u>MemoGrep<CR>
 let g:memolist_memo_suffix = "md"
 let g:memolist_qfixgrep = 1
 let g:memolist_ex_cmd = 'NERDTree'
+
+" easymotion
+" `s{char}{char}{label}`
+" Need one more keystroke, but on average, it may be more comfortable.
+nmap s <Plug>(easymotion-overwin-f2)
+" JK motions: Line motions
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)	
+
