@@ -226,6 +226,13 @@ noremap j gj
 noremap k gk
 noremap gj j
 noremap gk k
+" 行頭・行末移動も「論理行」「表示行」を入れ替え
+noremap 0 g0
+noremap g0 0
+noremap ^ g^
+noremap g^ ^
+noremap $ g$
+noremap g$ $
 " 行末までヤンク
 nnoremap Y y$
 " 日時入力の補助
