@@ -31,6 +31,7 @@ Plug 'rcmdnk/vim-markdown', { 'for': ['markdown']}
 Plug 'rhysd/vim-gfm-syntax', { 'for': ['markdown']}
 Plug 'glidenote/memolist.vim'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle'}
+Plug 'justinmk/vim-dirvish'
 Plug 'ctrlpvim/ctrlp.vim'
 
 let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'			" キャッシュディレクトリ
@@ -129,6 +130,8 @@ augroup myFIleType
 	autocmd!
 	autocmd BufNewFile,BufRead *.py setlocal tabstop=4 softtabstop=4 shiftwidth=4
 	autocmd BufNewFile,BufRead *.rb setlocal tabstop=2 softtabstop=2 shiftwidth=2
+	autocmd BufNewFile,BufRead *.md setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+	autocmd BufNewFile,BufRead *.vb setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 	autocmd BufNewFile,BufRead *.go setlocal tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab autowrite
 augroup END
 augroup goFileType
@@ -223,6 +226,13 @@ noremap j gj
 noremap k gk
 noremap gj j
 noremap gk k
+" 行頭・行末移動も「論理行」「表示行」を入れ替え
+noremap 0 g0
+noremap g0 0
+noremap ^ g^
+noremap g^ ^
+noremap $ g$
+noremap g$ $
 " 行末までヤンク
 nnoremap Y y$
 " 日時入力の補助
@@ -326,6 +336,8 @@ let g:memolist_ex_cmd = 'NERDTree'
 " `s{char}{char}{label}`
 " Need one more keystroke, but on average, it may be more comfortable.
 nmap s <Plug>(easymotion-overwin-f2)
+vmap s <Plug>(easymotion-bd-f2)
+
 " JK motions: Line motions
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)	
