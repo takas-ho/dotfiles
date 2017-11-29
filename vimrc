@@ -337,8 +337,10 @@ let g:memolist_ex_cmd = 'NERDTree'
 " Need one more keystroke, but on average, it may be more comfortable.
 nmap s <Plug>(easymotion-overwin-f2)
 vmap s <Plug>(easymotion-bd-f2)
-
 " JK motions: Line motions
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)	
+" migemo
+map g/ <Plug>(easymotion-sn)
+omap g/ <Plug>(easymotion-tn)
 
