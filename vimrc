@@ -185,9 +185,6 @@ set matchtime=1							" 対応カッコ強調表示時間
 source $VIMRUNTIME/macros/matchit.vim	" Vimの「%」を拡張する
 set display=lastline					" 長い行でも表示しきる
 
-" ステータスラインを常に表示
-set laststatus=2
-
 " 不可視文字を表示
 set list
 " 不可視文字を表示の詳細設定
