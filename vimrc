@@ -66,6 +66,13 @@ elseif 16 <= &t_Co
 endif
 
 Plug 'scrooloose/syntastic'
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+let g:syntastic_markdown_checkers = ['textlint']
+let g:syntastic_text_checkers = ['textlint']
 
 " edit
 Plug 'SirVer/ultisnips'
