@@ -52,8 +52,7 @@ let g:EasyMotion_use_migemo = 1
 Plug 'cocopon/vaffle.vim'
 let g:vaffle_show_hidden_files = 1
 
-Plug 'tpope/vim-fugitive'
-Plug 'gregsexton/gitv', { 'on': ['Gitv']}
+Plug 'tpope/vim-fugitive' | Plug 'gregsexton/gitv', { 'on': ['Gitv']}
 let g:Gitv_OpenHorizontal = 1
 let g:Gitv_DoNotMapCtrlKey = 1
 let g:Gitv_TruncateCommitSubjects = 1
