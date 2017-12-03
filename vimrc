@@ -191,6 +191,7 @@ set showmatch							" 対応する括弧表示
 set matchtime=1							" 対応カッコ強調表示時間
 source $VIMRUNTIME/macros/matchit.vim	" Vimの「%」を拡張する
 set display=lastline					" 長い行でも表示しきる
+set foldlevel=99						" 折りたたまれるのを抑止
 
 " 不可視文字を表示
 set list
