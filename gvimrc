@@ -15,6 +15,7 @@ if has('gui_macvim')
 endif
 set cursorline
 set imdisable	" IMを無効化
+highlight CursorLine gui=underline guifg=NONE guibg=NONE
 
 set visualbell t_vb= " ビープ音なし
 

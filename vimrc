@@ -111,6 +111,7 @@ augroup cursorline
 	autocmd WinEnter * setlocal cursorline
 	autocmd WinLeave * setlocal nocursorline
 augroup END
+highlight CursorLine cterm=underline ctermfg=NONE ctermbg=NONE
 
 set backspace=start,eol,indent		" Backspaceで文字の削除とeol,indentも削除可能に
 set whichwrap=b,s,h,l,[,],<,>,~		" カーソルキーでeolをまたげるように
