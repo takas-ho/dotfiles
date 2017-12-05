@@ -1,6 +1,6 @@
 " display & information
 set lines=60
-set columns=128
+set columns=200
 set guioptions=c	" show no GUI components
 set guioptions-=T	" ツールバー非表示
 colorscheme desert
