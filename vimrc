@@ -19,11 +19,13 @@ let s:is_cygwin  = has('win32unix')
 let s:is_gui     = has('gui_running')
 let s:is_unix    = has('unix')
 let s:is_mac     = has('mac')
+let s:is_cui     = !s:is_gui
+
 if (s:is_unix || s:is_cygwin) && &term =~# '^xterm' && &t_Co < 256
 	set t_Co=256
 endif
 
-call plug#begin('~/.vim/plugged')
+silent! call plug#begin('~/.vim/plugged')
 
 Plug 'vim-jp/vimdoc-ja'
 Plug 'Shougo/neocomplete.vim'
@@ -74,7 +76,9 @@ let g:syntastic_markdown_checkers = ['textlint']
 let g:syntastic_text_checkers = ['textlint']
 
 " edit
-Plug 'SirVer/ultisnips'
+if !s:is_windows && !s:is_cygwin
+	Plug 'SirVer/ultisnips'
+endif
 
 " lang
 Plug 'fatih/vim-go'
@@ -179,6 +183,8 @@ if s:is_cygwin
 endif
 
 " 見た目
+"" 現在の列を強調表示
+"set cursorcolumn
 
 " markdown
 hi link htmlItalic LineNr
@@ -192,6 +198,8 @@ set matchtime=1							" 対応カッコ強調表示時間
 source $VIMRUNTIME/macros/matchit.vim	" Vimの「%」を拡張する
 set display=lastline					" 長い行でも表示しきる
 set foldlevel=99						" 折りたたまれるのを抑止
+
+set wildmode=list:longest				" コマンドラインの補完
 
 " 不可視文字を表示
 set list
