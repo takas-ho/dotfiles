@@ -50,6 +50,7 @@ let g:ctrlp_custom_ignore = {
 
 Plug 'easymotion/vim-easymotion'
 let g:EasyMotion_use_migemo = 1
+Plug 'tpope/vim-unimpaired'
 
 Plug 'cocopon/vaffle.vim'
 let g:vaffle_show_hidden_files = 1
