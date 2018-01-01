@@ -5,7 +5,7 @@ else
 endif
 set encoding=utf-8
 set fileencoding=utf-8
-set fileencodings=utf-8,cp932
+set fileencodings=utf-8,iso-2022-jp,euc-jp,cp932
 
 scriptencoding=utf-8
 
@@ -19,11 +19,13 @@ let s:is_cygwin  = has('win32unix')
 let s:is_gui     = has('gui_running')
 let s:is_unix    = has('unix')
 let s:is_mac     = has('mac')
+let s:is_cui     = !s:is_gui
+
 if (s:is_unix || s:is_cygwin) && &term =~# '^xterm' && &t_Co < 256
 	set t_Co=256
 endif
 
-call plug#begin('~/.vim/plugged')
+silent! call plug#begin('~/.vim/plugged')
 
 Plug 'vim-jp/vimdoc-ja'
 Plug 'Shougo/neocomplete.vim'
@@ -48,12 +50,12 @@ let g:ctrlp_custom_ignore = {
 
 Plug 'easymotion/vim-easymotion'
 let g:EasyMotion_use_migemo = 1
+Plug 'tpope/vim-unimpaired'
 
 Plug 'cocopon/vaffle.vim'
 let g:vaffle_show_hidden_files = 1
 
-Plug 'tpope/vim-fugitive'
-Plug 'gregsexton/gitv', { 'on': ['Gitv']}
+Plug 'tpope/vim-fugitive' | Plug 'gregsexton/gitv', { 'on': ['Gitv']}
 let g:Gitv_OpenHorizontal = 1
 let g:Gitv_DoNotMapCtrlKey = 1
 let g:Gitv_TruncateCommitSubjects = 1
@@ -65,10 +67,19 @@ elseif 16 <= &t_Co
 	set showtabline=2					" タブを常に表示
 endif
 
-Plug 'scrooloose/syntastic'
+Plug 'scrooloose/syntastic', { 'tag' : '3.8.0' }
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+let g:syntastic_markdown_checkers = ['textlint']
+let g:syntastic_text_checkers = ['textlint']
 
 " edit
-Plug 'SirVer/ultisnips'
+if !s:is_windows && !s:is_cygwin
+	Plug 'SirVer/ultisnips'
+endif
 
 " lang
 Plug 'fatih/vim-go'
@@ -105,6 +116,7 @@ augroup cursorline
 	autocmd WinEnter * setlocal cursorline
 	autocmd WinLeave * setlocal nocursorline
 augroup END
+highlight CursorLine cterm=underline ctermfg=NONE ctermbg=NONE
 
 set backspace=start,eol,indent		" Backspaceで文字の削除とeol,indentも削除可能に
 set whichwrap=b,s,h,l,[,],<,>,~		" カーソルキーでeolをまたげるように
@@ -126,7 +138,7 @@ endif
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
-augroup myFIleType
+augroup myFileType
 	autocmd!
 	autocmd BufNewFile,BufRead *.py setlocal tabstop=4 softtabstop=4 shiftwidth=4
 	autocmd BufNewFile,BufRead *.rb setlocal tabstop=2 softtabstop=2 shiftwidth=2
@@ -172,6 +184,8 @@ if s:is_cygwin
 endif
 
 " 見た目
+"" 現在の列を強調表示
+"set cursorcolumn
 
 " markdown
 hi link htmlItalic LineNr
@@ -184,9 +198,9 @@ set showmatch							" 対応する括弧表示
 set matchtime=1							" 対応カッコ強調表示時間
 source $VIMRUNTIME/macros/matchit.vim	" Vimの「%」を拡張する
 set display=lastline					" 長い行でも表示しきる
+set foldlevel=99						" 折りたたまれるのを抑止
 
-" ステータスラインを常に表示
-set laststatus=2
+set wildmode=list:longest				" コマンドラインの補完
 
 " 不可視文字を表示
 set list
