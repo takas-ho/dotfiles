@@ -70,6 +70,8 @@ endif
 "Plug 'w0rp/ale'
 Plug 'tokida/ale', { 'branch': 'textlint'}
 let g:ale_linters = { 'markdown' : ['textlint'], }
+let g:ale_lint_on_save = 1
+let g:ale_lint_on_text_changed = 0
 "Plug 'scrooloose/syntastic', { 'tag' : '3.8.0' }
 "let g:syntastic_always_populate_loc_list = 1
 "let g:syntastic_auto_loc_list = 1
