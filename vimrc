@@ -86,6 +86,13 @@ if !s:is_windows && !s:is_cygwin
 	Plug 'SirVer/ultisnips'
 endif
 
+" javascript
+Plug 'pangloss/vim-javascript'
+let g:javascript_plugin_flow = 1
+Plug 'mxw/vim-jsx'
+let g:jsx_ext_required = 0
+Plug 'leshill/vim-json'
+
 " lang
 Plug 'fatih/vim-go'
 Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
