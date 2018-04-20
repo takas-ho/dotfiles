@@ -48,6 +48,8 @@ let g:ctrlp_custom_ignore = {
   \ 'link': 'some_bad_symbolic_links',
   \ }
 
+Plug 'tpope/vim-surround'
+
 Plug 'easymotion/vim-easymotion'
 let g:EasyMotion_use_migemo = 1
 Plug 'tpope/vim-unimpaired'
