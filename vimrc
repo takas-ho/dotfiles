@@ -150,9 +150,13 @@ set softtabstop=4
 set shiftwidth=4
 augroup myFileType
 	autocmd!
+	autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
+augroup END
+augroup myFileTypeIndent
+	autocmd!
 	autocmd BufNewFile,BufRead *.py setlocal tabstop=4 softtabstop=4 shiftwidth=4
 	autocmd BufNewFile,BufRead *.rb setlocal tabstop=2 softtabstop=2 shiftwidth=2
-	autocmd BufNewFile,BufRead *.md setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+	autocmd filetype markdown setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 	autocmd BufNewFile,BufRead *.html,*.htm setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 	autocmd BufNewFile,BufRead *.css,*.scss,*.sass setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 	autocmd BufNewFile,BufRead *.js setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
