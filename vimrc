@@ -43,7 +43,7 @@ let g:ctrlp_root_markers = ['Gemfile', 'pom.xml', 'build.xml', 'package.json', '
 let g:ctrlp_max_height = 20								" CtrlPのウィンドウ最大高さ
 " 無視するディレクトリ
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|svn)$|_v\/(bin|obj)$',
+  \ 'dir':  '\v[\/]\.(git|hg|svn)$|_v\/(bin|obj)$|\v[\/](node_modules|build)$|\v[\/]_ReSharper\..*$',
   \ 'file': '\v\.(exe|so|dll)$',
   \ 'link': 'some_bad_symbolic_links',
   \ }
