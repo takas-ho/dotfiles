@@ -50,6 +50,8 @@ let g:ctrlp_custom_ignore = {
 
 Plug 'tpope/vim-surround'
 
+Plug 'thinca/vim-quickrun'
+
 Plug 'easymotion/vim-easymotion'
 let g:EasyMotion_use_migemo = 1
 Plug 'tpope/vim-unimpaired'

@@ -10,7 +10,7 @@
 	ci = commit
 	st = status
 	sm = submodule
-	m = mergetool
+	mt = mergetool
 	d = difftool
 	l = log --graph -n 30 --date=iso --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(green)- %an, %ad%x08%x08%x08%x08%x08%x08%x08%x08%x08%Creset'
 	ll = log --graph -n 200 --date=iso --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(green)- %an, %ad%x08%x08%x08%x08%x08%x08%x08%x08%x08%Creset'
@@ -32,6 +32,7 @@
 [merge]
 	tool = vimdiff
 [mergetool]
+	prompt = false
 	keepBackup = false
 [rebase]
 	autosquash = true
