@@ -43,10 +43,12 @@ let g:ctrlp_root_markers = ['Gemfile', 'pom.xml', 'build.xml', 'package.json', '
 let g:ctrlp_max_height = 20								" CtrlPのウィンドウ最大高さ
 " 無視するディレクトリ
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|svn)$|_v\/(bin|obj)$',
+  \ 'dir':  '\v[\/]\.(git|hg|svn)$|_v\/(bin|obj)$|\v[\/](node_modules|build)$|\v[\/]_ReSharper\..*$',
   \ 'file': '\v\.(exe|so|dll)$',
   \ 'link': 'some_bad_symbolic_links',
   \ }
+
+Plug 'tpope/vim-surround'
 
 Plug 'easymotion/vim-easymotion'
 let g:EasyMotion_use_migemo = 1
@@ -148,9 +150,16 @@ set softtabstop=4
 set shiftwidth=4
 augroup myFileType
 	autocmd!
+	autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
+augroup END
+augroup myFileTypeIndent
+	autocmd!
 	autocmd BufNewFile,BufRead *.py setlocal tabstop=4 softtabstop=4 shiftwidth=4
 	autocmd BufNewFile,BufRead *.rb setlocal tabstop=2 softtabstop=2 shiftwidth=2
-	autocmd BufNewFile,BufRead *.md setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+	autocmd filetype markdown setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+	autocmd BufNewFile,BufRead *.html,*.htm setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+	autocmd BufNewFile,BufRead *.css,*.scss,*.sass setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+	autocmd BufNewFile,BufRead *.js setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 	autocmd BufNewFile,BufRead *.vb setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 	autocmd BufNewFile,BufRead *.go setlocal tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab autowrite
 augroup END
@@ -210,10 +219,14 @@ set foldlevel=99						" 折りたたまれるのを抑止
 
 set wildmode=list:longest				" コマンドラインの補完
 
-" 不可視文字を表示
+" Tab
+" 不可視文字を可視化
 set list
-" 不可視文字を表示の詳細設定
-set listchars=tab:\▸\ ,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
+if &term == 'win32'
+	set listchars=tab:>-,trail:･,precedes:<,extends:>
+else
+	set listchars=tab:\▸\ ,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
+endif
 " 全角スペースの可視化
 if has("syntax")
 	" PODバグ対策
@@ -284,7 +297,11 @@ augroup swapchoice-readonly
 	autocmd!
 	autocmd SwapExists * let v:swapchoice = 'o'
 augroup END
-set directory=$HOME/.tmp/vim/swap
+if s:is_windows
+	set directory=$TMP/vim/swap
+else
+	set directory=$HOME/.tmp/vim/swap
+endif
 call s:MakeDirIfNotExist(&directory)
 
 "File
