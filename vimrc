@@ -213,10 +213,14 @@ set foldlevel=99						" 折りたたまれるのを抑止
 
 set wildmode=list:longest				" コマンドラインの補完
 
-" 不可視文字を表示
+" Tab
+" 不可視文字を可視化
 set list
-" 不可視文字を表示の詳細設定
-set listchars=tab:\▸\ ,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
+if &term == 'win32'
+	set listchars=tab:>-,trail:･,precedes:<,extends:>
+else
+	set listchars=tab:\▸\ ,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
+endif
 " 全角スペースの可視化
 if has("syntax")
 	" PODバグ対策
