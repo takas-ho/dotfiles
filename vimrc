@@ -291,7 +291,11 @@ augroup swapchoice-readonly
 	autocmd!
 	autocmd SwapExists * let v:swapchoice = 'o'
 augroup END
-set directory=$HOME/.tmp/vim/swap
+if s:is_windows
+	set directory=$TMP/vim/swap
+else
+	set directory=$HOME/.tmp/vim/swap
+endif
 call s:MakeDirIfNotExist(&directory)
 
 "File
