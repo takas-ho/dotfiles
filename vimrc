@@ -81,6 +81,9 @@ let g:ale_linters = { 'markdown' : ['textlint'], }
 let g:ale_lint_on_save = 1
 let g:ale_lint_on_text_changed = 0
 
+" filetype
+Plug 'yuki2cb/vim-vbnet'
+
 " edit
 if !s:is_windows && !s:is_cygwin
 	Plug 'SirVer/ultisnips'
@@ -153,6 +156,7 @@ set shiftwidth=4
 augroup myFileType
 	autocmd!
 	autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
+	autocmd BufNewFile,BufRead *.vb set filetype=vbnet
 augroup END
 augroup myFileTypeIndent
 	autocmd!
