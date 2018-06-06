@@ -77,9 +77,12 @@ if s:is_mac
 endif
 
 Plug 'w0rp/ale'
-let g:ale_linters = { 'markdown' : ['textlint'], }
+"let g:ale_linters = { 'markdown' : ['textlint'], }
 let g:ale_lint_on_save = 1
 let g:ale_lint_on_text_changed = 0
+
+" filetype
+Plug 'yuki2cb/vim-vbnet'
 
 " edit
 if !s:is_windows && !s:is_cygwin
@@ -153,6 +156,7 @@ set shiftwidth=4
 augroup myFileType
 	autocmd!
 	autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
+	autocmd BufNewFile,BufRead *.vb set filetype=vbnet
 augroup END
 augroup myFileTypeIndent
 	autocmd!
@@ -161,7 +165,7 @@ augroup myFileTypeIndent
 	autocmd filetype markdown setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 	autocmd BufNewFile,BufRead *.html,*.htm setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 	autocmd BufNewFile,BufRead *.css,*.scss,*.sass setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
-	autocmd BufNewFile,BufRead *.js setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+	autocmd BufNewFile,BufRead *.js,*.json setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 	autocmd BufNewFile,BufRead *.vb setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 	autocmd BufNewFile,BufRead *.go setlocal tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab autowrite
 augroup END
@@ -227,7 +231,7 @@ set list
 if &term == 'win32'
 	set listchars=tab:>-,trail:･,precedes:<,extends:>
 else
-	set listchars=tab:\▸\ ,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
+	set listchars=tab:\▸\ ,trail:▵,eol:↲,extends:»,precedes:«,nbsp:%
 endif
 " 全角スペースの可視化
 if has("syntax")
