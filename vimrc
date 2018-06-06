@@ -227,7 +227,7 @@ set list
 if &term == 'win32'
 	set listchars=tab:>-,trail:･,precedes:<,extends:>
 else
-	set listchars=tab:\▸\ ,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
+	set listchars=tab:\▸\ ,trail:▵,eol:↲,extends:»,precedes:«,nbsp:%
 endif
 " 全角スペースの可視化
 if has("syntax")
