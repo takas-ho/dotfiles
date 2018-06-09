@@ -18,6 +18,7 @@
 	sl = !sh -c '/usr/local/src/smartgit/bin/smartgit.sh --log \"$(git rev-parse --show-toplevel)\"' &
 	kr = !sh -c 'gitkraken --path \"$(git rev-parse --show-toplevel)\"' > /dev/null &
 	cpush = !git push origin `git rev-parse --abbrev-ref HEAD`
+	pr = "!f(){ REMOTEURL=`git remote -v|grep ${1:-origin}|grep push|sed -e \"s/\\.git .*$//g\"|sed -e \"s/^.*@//g\"`;open https://`echo $REMOTEURL | sed -e \"s/:.*$//g\"`/`echo $REMOTEURL | sed -e \"s/^.*://g\"`/compare/`git name-rev --name-only HEAD`\"?expand=1#start-of-content\";};f"
 [push]
 	default = simple
 [fetch]
