@@ -17,7 +17,7 @@
 	s = status --short --branch
 	sl = !sh -c '/usr/local/src/smartgit/bin/smartgit.sh --log \"$(git rev-parse --show-toplevel)\"' &
 	kr = !sh -c 'gitkraken --path \"$(git rev-parse --show-toplevel)\"' > /dev/null &
-	cpush = "!f(){ if [[ \"$1\" =~ ^- ]]; then ARGS=\"$1 ${2:-origin}\"; else ARGS=${1:-origin}; fi; git push $ARGS `git rev-parse --abbrev-ref HEAD`;};f"
+	cpush = "!f(){ if [[ \"$1\" =~ ^- ]]; then ARGS=\"$1 ${2:-origin}\"; else ARGS=${1:-origin}; fi;ARGS=\"$ARGS `git rev-parse --abbrev-ref HEAD`\"; echo \\(git push $ARGS\\); git push $ARGS;};f"
 	pr = "!f(){ REMOTEURL=`git remote -v|grep ${1:-origin}|grep push|sed -e \"s/\\.git .*$//g\" -e \"s/(push)$//g\" -e \"s/^.*@//g\"`;open https://`echo $REMOTEURL | sed -e \"s/:/\\//g\"`/compare/`git rev-parse --abbrev-ref HEAD`\"?expand=1#start-of-content\";};f"
 [push]
 	default = simple
