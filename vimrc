@@ -224,6 +224,7 @@ set display=lastline					" 長い行でも表示しきる
 set foldlevel=99						" 折りたたまれるのを抑止
 
 set wildmode=list:longest				" コマンドラインの補完
+set nofixeol							" 自動改行は無効
 
 " Tab
 " 不可視文字を可視化
