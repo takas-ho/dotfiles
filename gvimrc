@@ -16,8 +16,7 @@ if has('gui_macvim')
     set guifont=Osaka－等幅:h18
     set linespace=0
     silent! colorscheme parsec
-endif
-if has('kaoriya')
+elseif has('kaoriya')
 	set showtabline=2	" タブを常に表示
 	autocmd GUIEnter * set transparency=240
 	set guifont=MS_GOTHIC:h9
