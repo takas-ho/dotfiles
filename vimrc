@@ -28,9 +28,6 @@ endif
 silent! call plug#begin('~/.vim/plugged')
 
 Plug 'vim-jp/vimdoc-ja'
-Plug 'Shougo/neocomplete.vim'
-Plug 'rcmdnk/vim-markdown', { 'for': ['markdown']}
-Plug 'rhysd/vim-gfm-syntax', { 'for': ['markdown']}
 Plug 'glidenote/memolist.vim'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle'}
 Plug 'justinmk/vim-dirvish'
@@ -47,6 +44,11 @@ let g:ctrlp_custom_ignore = {
   \ 'file': '\v\.(exe|so|dll)$',
   \ 'link': 'some_bad_symbolic_links',
   \ }
+
+" markdown
+Plug 'godlygeek/tabular', { 'for': ['markdown']}
+Plug 'plasticboy/vim-markdown', { 'for': ['markdown']}
+Plug 'rhysd/vim-gfm-syntax', { 'for': ['markdown']}
 
 Plug 'tpope/vim-surround'
 
@@ -76,8 +78,8 @@ if s:is_mac
 	let g:previm_open_cmd = 'open -a Safari'
 endif
 
-Plug 'w0rp/ale'
-"let g:ale_linters = { 'markdown' : ['textlint'], }
+"Plug 'w0rp/ale'
+let g:ale_linters = { 'markdown' : ['textlint'], }
 let g:ale_lint_on_save = 1
 let g:ale_lint_on_text_changed = 0
 
