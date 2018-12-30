@@ -28,7 +28,6 @@ endif
 silent! call plug#begin('~/.vim/plugged')
 
 Plug 'vim-jp/vimdoc-ja'
-Plug 'Shougo/neocomplete.vim'
 Plug 'rcmdnk/vim-markdown', { 'for': ['markdown']}
 Plug 'rhysd/vim-gfm-syntax', { 'for': ['markdown']}
 Plug 'glidenote/memolist.vim'
