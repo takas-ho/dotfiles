@@ -28,8 +28,6 @@ endif
 silent! call plug#begin('~/.vim/plugged')
 
 Plug 'vim-jp/vimdoc-ja'
-Plug 'rcmdnk/vim-markdown', { 'for': ['markdown']}
-Plug 'rhysd/vim-gfm-syntax', { 'for': ['markdown']}
 Plug 'glidenote/memolist.vim'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle'}
 Plug 'justinmk/vim-dirvish'
@@ -46,6 +44,11 @@ let g:ctrlp_custom_ignore = {
   \ 'file': '\v\.(exe|so|dll)$',
   \ 'link': 'some_bad_symbolic_links',
   \ }
+
+" markdown
+Plug 'godlygeek/tabular', { 'for': ['markdown']}
+Plug 'plasticboy/vim-markdown', { 'for': ['markdown']}
+Plug 'rhysd/vim-gfm-syntax', { 'for': ['markdown']}
 
 Plug 'tpope/vim-surround'
 
