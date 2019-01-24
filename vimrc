@@ -29,6 +29,7 @@ silent! call plug#begin('~/.vim/plugged')
 
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
+Plug 'ryanolsonx/vim-lsp-javascript'
 
 Plug 'vim-jp/vimdoc-ja'
 Plug 'glidenote/memolist.vim'
@@ -143,6 +144,16 @@ set whichwrap=b,s,h,l,[,],<,>,~		" カーソルキーでeolをまたげるよう
 set mouse=							" ターミナルごとに動作が異なるらしいマウス連動はしない
 set laststatus=2					" ステータス行を常に表示
 set scrolloff=5						" カーソルの上端または下端に最低5行は表示
+
+" vim-lsp
+if executable('typescript-language-server')
+    au User lsp_setup call lsp#register_server({
+      \ 'name': 'javascript support using typescript-language-server',
+      \ 'cmd': { server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
+      \ 'root_uri': { server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_directory(lsp#utils#get_buffer_path(), '.git/..'))},
+      \ 'whitelist': ['javascript', 'javascript.jsx']
+      \ })
+endif
 
 " コード補完
 let g:neocomplete#enable_at_startup = 1
