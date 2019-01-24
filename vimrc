@@ -27,6 +27,9 @@ endif
 
 silent! call plug#begin('~/.vim/plugged')
 
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+
 Plug 'vim-jp/vimdoc-ja'
 Plug 'glidenote/memolist.vim'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle'}
