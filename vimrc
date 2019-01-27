@@ -27,8 +27,10 @@ endif
 
 silent! call plug#begin('~/.vim/plugged')
 
+Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'ryanolsonx/vim-lsp-javascript'
 
 Plug 'vim-jp/vimdoc-ja'
