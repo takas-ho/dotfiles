@@ -58,6 +58,8 @@ Plug 'rhysd/vim-gfm-syntax', { 'for': ['markdown']}
 
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
+Plug 'kana/vim-textobj-user'
+Plug 'pocke/vim-textobj-markdown' " markdownのコードブロックをtextobj化
 
 Plug 'thinca/vim-quickrun'
 
