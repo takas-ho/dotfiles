@@ -31,7 +31,7 @@ Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
-Plug 'ryanolsonx/vim-lsp-javascript'
+Plug 'ryanolsonx/vim-lsp-javascript', { 'for': ['javascript']}
 
 Plug 'vim-jp/vimdoc-ja'
 Plug 'glidenote/memolist.vim'
