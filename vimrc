@@ -85,11 +85,6 @@ elseif 16 <= &t_Co
 	set showtabline=2					" タブを常に表示
 endif
 
-Plug 'kannokanno/previm'
-if s:is_mac
-	let g:previm_open_cmd = 'open -a Safari'
-endif
-
 "Plug 'w0rp/ale'
 let g:ale_linters = { 'markdown' : ['textlint'], }
 let g:ale_lint_on_save = 1
