@@ -55,6 +55,9 @@ let g:ctrlp_custom_ignore = {
 Plug 'godlygeek/tabular', { 'for': ['markdown']}
 Plug 'plasticboy/vim-markdown', { 'for': ['markdown']}
 Plug 'rhysd/vim-gfm-syntax', { 'for': ['markdown']}
+Plug 'tyru/open-browser.vim'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
+Plug 'aklt/plantuml-syntax'
 
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
@@ -80,11 +83,6 @@ if s:is_gui
 elseif 16 <= &t_Co
 	Plug 'itchyny/lightline.vim'
 	set showtabline=2					" タブを常に表示
-endif
-
-Plug 'kannokanno/previm'
-if s:is_mac
-	let g:previm_open_cmd = 'open -a Safari'
 endif
 
 "Plug 'w0rp/ale'
