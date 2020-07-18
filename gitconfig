@@ -18,7 +18,7 @@
 	sl = !sh -c '/usr/local/src/smartgit/bin/smartgit.sh --log \"$(git rev-parse --show-toplevel)\"' &
 	kr = !sh -c 'gitkraken --path \"$(git rev-parse --show-toplevel)\"' > /dev/null &
 	cpush = "!f(){ if [[ \"$1\" =~ ^- ]]; then ARGS=\"$1 ${2:-origin}\"; else ARGS=${1:-origin}; fi;ARGS=\"$ARGS `git rev-parse --abbrev-ref HEAD`\"; echo \\(git push $ARGS\\); git push $ARGS;};f"
-	pr = "!f(){ REMOTEURL=`git remote -v|grep ${1:-origin}|grep push|sed -e \"s/\\.git .*$//g\" -e \"s/(push)$//g\" -e \"s/^.*@//g\"`;open https://`echo $REMOTEURL | sed -e \"s/:/\\//g\"`/compare/`git rev-parse --abbrev-ref HEAD`\"?expand=1#start-of-content\";};f"
+	pr = "!f(){ REMOTEURL=`git remote -v|grep ${1:-github}|grep push|sed -e \"s/\\.git .*$//g\" -e \"s/(push)$//g\" -e \"s/^.*@//g\"`;open https://`echo $REMOTEURL | sed -e \"s/:/\\//g\"`/pull/new/`git rev-parse --abbrev-ref HEAD`;};f"
 	mr = "!f(){ REMOTEURL=`git remote -v|grep ${1:-gitlab}|grep push|sed -e \"s/\\.git .*$//g\" -e \"s/(push)$//g\" -e \"s/^.*://g\"`;open https://gitlab.com/`echo $REMOTEURL`/-/merge_requests/new?merge_request%5Bsource_branch%5D=`git rev-parse --abbrev-ref HEAD`;};f"
 [push]
 	default = simple
