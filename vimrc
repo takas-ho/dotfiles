@@ -53,8 +53,6 @@ let g:ctrlp_custom_ignore = {
 
 " markdown
 Plug 'godlygeek/tabular', { 'for': ['markdown']}
-Plug 'plasticboy/vim-markdown', { 'for': ['markdown']}
-Plug 'rhysd/vim-gfm-syntax', { 'for': ['markdown']}
 Plug 'tyru/open-browser.vim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 Plug 'aklt/plantuml-syntax'
