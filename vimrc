@@ -240,6 +240,7 @@ set foldlevel=99						" 折りたたまれるのを抑止
 
 set wildmode=list:longest				" コマンドラインの補完
 set nofixeol							" 自動改行は無効
+set wildignore+=node_modules/**,.git/**	" vimgrepの無視設定
 
 " Tab
 " 不可視文字を可視化
