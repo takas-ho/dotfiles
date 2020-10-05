@@ -151,3 +151,6 @@ export PATH=$PATH:$GOPATH/bin
 
 # yarn 1.21
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+# Android SDK platform
+export PATH="$PATH:$HOME/Library/Android/sdk/platform-tools/"
