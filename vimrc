@@ -376,6 +376,9 @@ augroup quickfix-open
 	autocmd QuickfixCmdPost * copen
 augroup END
 
+" x切り取りが、貼り付けされるのを回避
+noremap x "_x
+
 nnoremap <Leader>ev  :<C-u>tabnew $MYVIMRC<CR>
 nnoremap <Leader>sv  :<C-u>source $MYVIMRC<CR>
 nnoremap <Leader>ee  :<C-u>NERDTreeToggle<CR>
