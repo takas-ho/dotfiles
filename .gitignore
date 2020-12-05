@@ -1,3 +1,5 @@
 /vim/*
 !/vim/script
 !/vim/autoload
+/vim/autoload/*
+!/vim/autoload/plug.vim
