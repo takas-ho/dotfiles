@@ -29,12 +29,14 @@ if [ -e ~/.zsh/git-prompt.sh ]; then
   setopt PROMPT_SUBST ; PS1='%F{green}%n@%m%f:%F{yellow}%~%f %F{cyan}$(__git_ps1 "(%s)")%f %F{blue}%%%f '
 fi
 
-# MacVim
-if [ "$(uname)" = "Darwin" ]; then
-	export EDITOR=/usr/local/bin/mvim
-	alias mvimnew=/usr/local/bin/mvim
-	alias mvim="mvimnew --remote-tab-silent"
-	alias gvimnew=mvimnew
-	alias gvim=mvim
+if type brew &>/dev/null; then
+  # MacVim
+  if [ -e $(brew --prefix)/bin/mvim ]; then
+    export EDITOR=$(brew --prefix)/bin/mvim
+    alias mvimnew=$(brew --prefix)/bin/mvim
+    alias mvim="mvimnew --remote-tab-silent"
+    alias gvimnew=mvimnew
+    alias gvim=mvim
+  fi
 fi
 
