@@ -3,6 +3,11 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'    # 補完候補で、大文字・小文字を区別しないで補完出来るようにするが、大文字を入力した場合は区別する
+zstyle ':completion:*' ignore-parents parent pwd ..    # ../ の後は今いるディレクトリを補間しない
+zstyle ':completion:*:default' menu select=1           # 補間候補一覧上で移動できるように
+zstyle ':completion:*:cd:*' ignore-parents parent pwd  # 補間候補にカレントディレクトリは含めない
+
 export GIT_MERGE_AUTOEDIT=no
 
 # zsh-completions
@@ -11,6 +16,8 @@ if type brew &>/dev/null; then
 
   autoload -Uz compinit
   compinit
+
+  zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'    # 補完候補で、大文字・小文字を区別しないで補完出来るようにするが、大文字を入力した場合は区別する
 fi
 
 # git-prompt
